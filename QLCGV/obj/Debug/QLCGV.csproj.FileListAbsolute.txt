@@ -28,3 +28,4 @@ D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.csproj.GenerateResource.cache
 D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.csproj.CoreCompileInputs.cache
 D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.exe
 D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.pdb
+D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.Admin.Phim.resources
