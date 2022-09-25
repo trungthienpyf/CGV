@@ -82,6 +82,12 @@
     <Compile Include="Admin\Phong.Designer.cs">
       <DependentUpon>Phong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\TheLoaiPhim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\TheLoaiPhim.Designer.cs">
+      <DependentUpon>TheLoaiPhim.cs</DependentUpon>
+    </Compile>
     <Compile Include="DangKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </Compile>
     <EmbeddedResource Include="Admin\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Phim.resx">
+      <DependentUpon>Phim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DangKy.resx">
       <DependentUpon>DangKy.cs</DependentUpon>

@@ -49,5 +49,11 @@ namespace QLCGV.Admin
             this.Hide();
             new KhachHang().Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new TheLoaiPhim().Show();
+        }
     }
 }
