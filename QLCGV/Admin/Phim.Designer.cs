@@ -41,8 +41,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.textMa = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -184,6 +184,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phim";
             // 
+            // textMa
+            // 
+            this.textMa.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textMa.Location = new System.Drawing.Point(98, 53);
+            this.textMa.Name = "textMa";
+            this.textMa.Size = new System.Drawing.Size(131, 29);
+            this.textMa.TabIndex = 12;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -193,14 +201,6 @@
             this.label2.Size = new System.Drawing.Size(74, 22);
             this.label2.TabIndex = 11;
             this.label2.Text = "Mã Phim";
-            // 
-            // textMa
-            // 
-            this.textMa.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textMa.Location = new System.Drawing.Point(98, 53);
-            this.textMa.Name = "textMa";
-            this.textMa.Size = new System.Drawing.Size(131, 29);
-            this.textMa.TabIndex = 12;
             // 
             // Phim
             // 

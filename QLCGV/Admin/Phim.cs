@@ -38,53 +38,49 @@ namespace QLCGV.Admin
       
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            
-                        try
-                        {
-                            if (textPhim.Text == "" || textTg.Text == "" || comboTL.Text == "" || richTextBox1.Text == "")
-                            {
-                                throw new Exception("vui long nhap day du thong tin");
-                            }
-                            int selectedRow = getSelectedRow(textMa.Text);
-                            if (selectedRow == -1)
-                            {
-                                
-                                SqlConnection conn = new SqlConnection();
-                                string query = "insert into Phim(maPhim,tenPhim,mota,thoigian,matheloai) values('" + textMa.Text + "','" + textPhim.Text + "','" + richTextBox1.Text + "','" + textTg.Text + "','" + comboTL.SelectedValue + "')";
-                                conn.ConnectionString = _conn;
-
-                                SqlCommand cmd = new SqlCommand(query, conn);
-                                conn.Open();
-                                cmd.CommandType = CommandType.Text;
-                                cmd.ExecuteNonQuery();
-                                conn.Close();
-                                MessageBox.Show("Them moi du lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
-                                load();
-                            }
-                            else
-                            {
-
-                            SqlConnection conn = new SqlConnection();
-                            string query = "update  Phim set tenPhim='" + textPhim.Text +"',mota='" + richTextBox1.Text +"', thoigian='" + textTg.Text +"',matheloai='" + comboTL.SelectedValue + "' where maPhim='" + textMa.Text + "'";
-                            conn.ConnectionString = _conn;
-
-                            SqlCommand cmd = new SqlCommand(query, conn);
-                            conn.Open();
-                            cmd.CommandType = CommandType.Text;
-                            cmd.ExecuteNonQuery();
-                            conn.Close();
-                  
-                            MessageBox.Show("Cap nhat du lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
-                            load();
+            try
+            {
+                if (textPhim.Text == "" || textTg.Text == "" || comboTL.Text == "" || richTextBox1.Text == "")
+                {
+                    throw new Exception("vui long nhap day du thong tin");
                 }
+                int selectedRow = getSelectedRow(textMa.Text);
+                if (selectedRow == -1)
+                {
+                                
+                    SqlConnection conn = new SqlConnection();
+                    string query = "insert into Phim(maPhim,tenPhim,mota,thoigian,matheloai) values('" + textMa.Text + "','" + textPhim.Text + "','" + richTextBox1.Text + "','" + textTg.Text + "','" + comboTL.SelectedValue + "')";
+                    conn.ConnectionString = _conn;
 
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    conn.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Them moi du lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
+                    load();
+                }
+                else
+                {
 
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
+                SqlConnection conn = new SqlConnection();
+                string query = "update  Phim set tenPhim='" + textPhim.Text +"',mota='" + richTextBox1.Text +"', thoigian='" + textTg.Text +"',matheloai='" + comboTL.SelectedValue + "' where maPhim='" + textMa.Text + "'";
+                conn.ConnectionString = _conn;
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                  
+                MessageBox.Show("Cap nhat du lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
+                load();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void getNameCategoryMovie()
@@ -130,8 +126,6 @@ namespace QLCGV.Admin
                 table.Clear();
                 adapter.Fill(table);
                 this.dgv.DataSource = table;
-
-
             }
 
             conn.Close();
@@ -152,8 +146,6 @@ namespace QLCGV.Admin
             richTextBox1.Text = dgv.Rows[i].Cells[2].Value.ToString();
             textTg.Text = dgv.Rows[i].Cells[3].Value.ToString();
             comboTL.Text = dgv.Rows[i].Cells[4].Value.ToString();
-           
-          
         }
     }
 }
