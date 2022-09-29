@@ -123,6 +123,9 @@
     <EmbeddedResource Include="Admin\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\NhanVien.resx">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Phim.resx">
       <DependentUpon>Phim.cs</DependentUpon>
     </EmbeddedResource>
