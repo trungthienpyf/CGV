@@ -17,7 +17,7 @@ namespace QLCGV
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Phong());
+            Application.Run(new Login());
         }
     }
 }
