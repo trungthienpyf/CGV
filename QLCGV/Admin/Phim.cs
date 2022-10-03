@@ -136,15 +136,11 @@ namespace QLCGV.Admin
 
             conn.Close();
         }
-        //private void Phim_Load(object sender, EventArgs e)
-        //{
-        //    // TODO: This line of code loads data into the '_QLRPDataSet1.PHONG' table. You can move, or remove it, as needed.
-        //    this.pHONGTableAdapter.Fill(this._QLRPDataSet1.PHONG);
-        //    // TODO: This line of code loads data into the '_QLRPDataSet.LICHCHIEU' table. You can move, or remove it, as needed.
-        //    this.lICHCHIEUTableAdapter.Fill(this._QLRPDataSet.LICHCHIEU);
-        //    getNameCategoryMovie();
-        //    load();
-        //}
+        private void Phim_Load(object sender, EventArgs e)
+        {
+            getNameCategoryMovie();
+            load();
+        }
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
