@@ -120,8 +120,26 @@
     <Compile Include="User\User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <Compile Include="_QLRPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_QLRPDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_QLRPDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_QLRPDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_QLRPDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_QLRPDataSet2.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\LichChieu.resx">
+      <DependentUpon>LichChieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Phim.resx">
       <DependentUpon>Phim.cs</DependentUpon>
@@ -156,6 +174,39 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_QLRPDataSet.xsc">
+      <DependentUpon>_QLRPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_QLRPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_QLRPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_QLRPDataSet.xss">
+      <DependentUpon>_QLRPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_QLRPDataSet1.xsc">
+      <DependentUpon>_QLRPDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_QLRPDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_QLRPDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_QLRPDataSet1.xss">
+      <DependentUpon>_QLRPDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_QLRPDataSet2.xsc">
+      <DependentUpon>_QLRPDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_QLRPDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_QLRPDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_QLRPDataSet2.xss">
+      <DependentUpon>_QLRPDataSet2.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
