@@ -64,3 +64,4 @@ C:\Users\PC\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.csproj.GenerateResource.c
 C:\Users\PC\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.csproj.CoreCompileInputs.cache
 C:\Users\PC\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.exe
 C:\Users\PC\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.pdb
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.Admin.Phong.resources

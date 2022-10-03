@@ -19,7 +19,7 @@ namespace QLCGV.Admin
             InitializeComponent();
         }
         //ket noi SQL
-        string _conn = "server=TRUNGTHIEN\\SQLEXPRESS; database=_QLRP; Integrated security=True";
+        string _conn = "server=LAPTOP-FL07KQOI; database=_QLRP; Integrated security=True";
 
         DataTable table = new DataTable();
 
@@ -41,13 +41,17 @@ namespace QLCGV.Admin
             {
                 if (txtHoTen.Text == "" || txtPass.Text == "" || cmbCV.Text == "")
                 {
-                    throw new Exception("vui long nhap day du thong tin");
+                    throw new Exception("Vui lòng nhập đầy đủ thông tin");
+                }
+                if (txtPass.Text.Length < 6)
+                {
+                    throw new Exception("Mật khẩu phải đủ 6 ký tự");
                 }
                 int selectedRow = getSelectedRow(txtID.Text);
                 if (selectedRow == -1)
                 {
                     SqlConnection conn = new SqlConnection();
-                    string query = "insert into NhanVien(maNV,hoTenNV,matKhau,chucVu) values('" + txtID.Text + "','" + txtHoTen.Text + "','" + txtPass.Text + "','" + cmbCV.Text + "')";
+                    string query = "insert into Admin(maAdmin,tenAdmin,chucVu, matKhau) values('" + txtID.Text + "','" + txtHoTen.Text + "','" + cmbCV.Text + "','" + txtPass.Text + "')";
                     conn.ConnectionString = _conn;
 
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -55,23 +59,22 @@ namespace QLCGV.Admin
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("Them moi du lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
-                    
+                    MessageBox.Show("Thêm dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK);
+                    load();
                 }
                 else
                 {
                     SqlConnection conn = new SqlConnection();
-                    string query = "update  NhanVien set hoTenNV='" + txtHoTen.Text + "',matKhau='" + txtPass.Text + "', chucVu='" + cmbCV.Text + "',matheloai='" + "' where maNV='" + txtID.Text + "'";
+                    string query = "update  Admin set tenAdmin='" + txtHoTen.Text + "', chucVu='" + cmbCV.Text + "',matKhau='" + txtPass.Text + "' where maAdmin='" + txtID.Text + "'";
                     conn.ConnectionString = _conn;
-
                     SqlCommand cmd = new SqlCommand(query, conn);
                     conn.Open();
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                     conn.Close();
 
-                    MessageBox.Show("Cap nhat du lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
-                    
+                    MessageBox.Show("Cập nhật dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK);
+                    load();
                 }
             }
             catch (Exception ex)
@@ -80,14 +83,30 @@ namespace QLCGV.Admin
             }
         }
 
+        private void load()
+        {
+            SqlConnection conn = new SqlConnection();
+            string query = "Select * from Admin ";
+
+            conn.ConnectionString = _conn;
+
+            using (var adapter = new SqlDataAdapter(query, conn))
+            {
+                table.Clear();
+                adapter.Fill(table);
+                this.dgv.DataSource = table;
+            }
+            conn.Close();
+        }
+
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int i;
             i = dgv.CurrentRow.Index;
             txtID.Text = dgv.Rows[i].Cells[0].Value.ToString();
-            txtHoTen.Text = dgv.Rows[i].Cells[1].Value.ToString();
-            txtPass.Text = dgv.Rows[i].Cells[2].Value.ToString();
-            cmbCV.Text = dgv.Rows[i].Cells[3].Value.ToString();
+            txtHoTen.Text = dgv.Rows[i].Cells[1].Value.ToString(); 
+            cmbCV.Text = dgv.Rows[i].Cells[2].Value.ToString();
+            txtPass.Text = dgv.Rows[i].Cells[3].Value.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -95,25 +114,55 @@ namespace QLCGV.Admin
             try
             {
                 int selectedRow = getSelectedRow(txtID.Text);
+
                 if (selectedRow == -1)
                 {
-                    throw new Exception("Khong tim thay Ma NV can xoa");
+                    throw new Exception("Không có phòng để xóa ");
                 }
                 else
                 {
-                    DialogResult dr = MessageBox.Show("Ban co muon xoa?", "Yes/No", MessageBoxButtons.YesNo);                 
+                    DialogResult dr = MessageBox.Show("Bạn có muốn xóa? ", "YES/NO", MessageBoxButtons.YesNo);
                     if (dr == DialogResult.Yes)
                     {
                         dgv.Rows.RemoveAt(selectedRow);
-                        MessageBox.Show("Xoa SV thanh cong!", "Thong bao", MessageBoxButtons.OK);
 
+                        SqlConnection conn = new SqlConnection();
+                        string query = "DELETE dbo.Admin  where maAdmin=" + txtID.Text;
+                        conn.ConnectionString = _conn;
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        conn.Open();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        MessageBox.Show("Cập nhật dữ liệu thành công!", "Thông Báo", MessageBoxButtons.OK);
+                        load();
                     }
                 }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new Admin().Show();
+        }
+
+        private void NV_Load(object sender, EventArgs e)
+        {
+            load();
+        }
+
+        private void NhanVien_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the '_QLRPDataSet1.ADMIN' table. You can move, or remove it, as needed.
+            this.aDMINTableAdapter.Fill(this._QLRPDataSet1.ADMIN);
+
         }
     }
 }
