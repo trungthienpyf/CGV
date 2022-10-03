@@ -125,6 +125,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_QLRPDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_QLRPDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_QLRPDataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +182,17 @@
     </None>
     <None Include="_QLRPDataSet.xss">
       <DependentUpon>_QLRPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_QLRPDataSet1.xsc">
+      <DependentUpon>_QLRPDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_QLRPDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_QLRPDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_QLRPDataSet1.xss">
+      <DependentUpon>_QLRPDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

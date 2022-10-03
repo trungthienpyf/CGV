@@ -32,5 +32,15 @@ namespace QLCGV.Properties {
                 return ((string)(this["_QLRPConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-FL07KQOI;Initial Catalog=_QLRP;Integrated Security=True")]
+        public string _QLRPConnectionString1 {
+            get {
+                return ((string)(this["_QLRPConnectionString1"]));
+            }
+        }
     }
 }

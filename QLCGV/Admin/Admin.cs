@@ -34,14 +34,14 @@ namespace QLCGV.Admin
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new LichChieu().Show();
+            new NhanVien().Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
 
             this.Hide();
-            new NhanVien().Show();
+            new LichChieu().Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
