@@ -44,6 +44,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textMa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+
             this._QLRPDataSet = new QLCGV._QLRPDataSet();
             this.lICHCHIEUBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lICHCHIEUTableAdapter = new QLCGV._QLRPDataSetTableAdapters.LICHCHIEUTableAdapter();
@@ -62,6 +63,10 @@
             //((System.ComponentModel.ISupportInitialize)(this._QLRPDataSet1)).BeginInit();
             //((System.ComponentModel.ISupportInitialize)(this.pHONGBindingSource)).BeginInit();
             //this.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
+
             // 
             // label1
             // 
@@ -226,10 +231,16 @@
             // textMa
             // 
             this.textMa.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.textMa.Location = new System.Drawing.Point(131, 65);
             this.textMa.Margin = new System.Windows.Forms.Padding(4);
             this.textMa.Name = "textMa";
             this.textMa.Size = new System.Drawing.Size(173, 34);
+
+            this.textMa.Location = new System.Drawing.Point(98, 53);
+            this.textMa.Name = "textMa";
+            this.textMa.Size = new System.Drawing.Size(131, 29);
+
             this.textMa.TabIndex = 12;
             // 
             // label2
@@ -243,6 +254,7 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Mã Phim";
             // 
+
             // _QLRPDataSet
             // 
             this._QLRPDataSet.DataSetName = "_QLRPDataSet";
@@ -315,6 +327,8 @@
             // 
            
             // 
+
+
             // Phim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
