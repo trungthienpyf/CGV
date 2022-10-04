@@ -1,0 +1,11 @@
+D:\gitCloneC#\clone\CGV\DAL\bin\Debug\DAL.dll
+D:\gitCloneC#\clone\CGV\DAL\bin\Debug\DAL.pdb
+D:\gitCloneC#\clone\CGV\DAL\bin\Debug\DTO.dll
+D:\gitCloneC#\clone\CGV\DAL\bin\Debug\Newtonsoft.Json.dll
+D:\gitCloneC#\clone\CGV\DAL\bin\Debug\DTO.pdb
+D:\gitCloneC#\clone\CGV\DAL\bin\Debug\Newtonsoft.Json.xml
+D:\gitCloneC#\clone\CGV\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\gitCloneC#\clone\CGV\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\gitCloneC#\clone\CGV\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\gitCloneC#\clone\CGV\DAL\obj\Debug\DAL.dll
+D:\gitCloneC#\clone\CGV\DAL\obj\Debug\DAL.pdb

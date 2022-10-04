@@ -10,32 +10,20 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Text.RegularExpressions;
+using DAL;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLCGV
 {
     public partial class DangKy : Form
     {
-        string _conn = "server=TRUNGTHIEN\\SQLEXPRESS; database=_QLRP; Integrated security=True";
+      
        
         public DangKy()
         {
             InitializeComponent();
         }
-        void connDB()
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = _conn;
-                conn.Open();
-                MessageBox.Show("Thanh Cong");
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                ex.ToString();
-            }
-        }
+        
 
         private void DangKy_Load(object sender, EventArgs e)
         {
@@ -90,60 +78,37 @@ namespace QLCGV
 
                     }
                 }
-               
-                    
-                
                 if (string.IsNullOrEmpty(textMk.Text.Trim()))
                 {
                     throw new Exception("Vui lòng nhập Password");
 
                 }
-              
-                bool check = false;
-                string query2 = "select * from khachhang where SDT=@SDT or email=@Email";
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = _conn;
-                SqlCommand cmd2 = new SqlCommand(query2, conn);
+                ApiService dk = new ApiService();
 
-                conn.Open();
-                string query = "insert into khachhang(tenKhachHang,SDT,Email,diaChi,matKhau) values(@tenKhachHang,@SDT,@Email,@diaChi,@matKhau)";
+                var list= dk.readData();
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@tenKhachHang", textHt.Text);
-                cmd.Parameters.AddWithValue("@SDT", textSdt.Text);
-                cmd.Parameters.AddWithValue("@Email", textEmail.Text);
-             //  cmd.Parameters.Add("@Email", SqlDbType.String).Value = Convert.ToString(textEmail.Text);
-                cmd2.Parameters.AddWithValue("@SDT", textSdt.Text);
-                cmd2.Parameters.AddWithValue("@Email", textEmail.Text);
-                cmd.Parameters.AddWithValue("@diaChi", richTextDc.Text);
-                cmd.Parameters.AddWithValue("@matKhau", textMk.Text);
-
-
-                SqlDataReader reader = cmd2.ExecuteReader();
-
-                // cmd.Parameters.AddWithValue("@HoTen", textMSSV1.Text);
-                while (reader.Read())
+               var checkInclude =list.Where(p => p.sdt == textSdt.Text || p.email == textEmail.Text).FirstOrDefault();
+                if (checkInclude!=null)
                 {
-                    check = true;
+                    throw new Exception("SDT hoac Email da bi trung!");
 
                 }
-                reader.Close();
-
+                string query = string.Format("tenKhachHang={0}&sdt={1}&email={2}&matKhau={3}&diaChi{4}",
+                textHt.Text, textSdt.Text, textEmail.Text, textMk.Text,richTextDc);
+                bool check= dk.insertData(query);
+  
                 if (check == true)
                 {
-                  throw new Exception("Sdt hoặc email đã tồn tại");
-                }
-                else
-                {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.ExecuteNonQuery();
                     MessageBox.Show("Đăng ký tài khoản thành công!!", "Thông báo");
                     new Login().Show();
                     this.Close();
                 }
-
-
-                conn.Close();
+                else
+                {
+                    throw new Exception("Có lỗi xảy ra");
+                    
+                  
+                }
 
             }
             catch(Exception ex)
