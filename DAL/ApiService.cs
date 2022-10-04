@@ -16,7 +16,7 @@ namespace DAL
         public List<KhachHangDTO>  readData()
         {
             WebClient wc = new WebClient();
-            string json = wc.DownloadString("https://200a-2405-4803-c834-55e0-f5ff-e590-633d-fbc4.ap.ngrok.io/api/khachHang");
+            string json = wc.DownloadString("https://mfw060.wcom.vn/api/khachHang");
 
             List<KhachHangDTO> ds = JsonConvert.DeserializeObject<List<KhachHangDTO>>(json);
 
@@ -24,10 +24,8 @@ namespace DAL
         }
         public bool insertData(string myParameters)
         {
-         
 
-            
-            string URI = "https://200a-2405-4803-c834-55e0-f5ff-e590-633d-fbc4.ap.ngrok.io/api/khachHang";
+            string URI = "https://mfw060.wcom.vn/api/khachHang";
 
             using (WebClient wc = new WebClient())
             {

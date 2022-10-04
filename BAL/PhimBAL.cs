@@ -16,7 +16,7 @@ namespace BAL
         PhimDAL phimDAL=new PhimDAL();
         public List<PhimDTO> readData()
         {
-            string URL = "https://200a-2405-4803-c834-55e0-f5ff-e590-633d-fbc4.ap.ngrok.io/api/phim";
+            string URL = "https://mfw060.wcom.vn/api/phim";
           var ds=  phimDAL.readData(URL);
 
             return ds;
@@ -25,7 +25,7 @@ namespace BAL
         {
 
         
-            string URL = "https://200a-2405-4803-c834-55e0-f5ff-e590-633d-fbc4.ap.ngrok.io/api/phim";
+            string URL = "https://mfw060.wcom.vn/api/phim";
             bool check = phimDAL.insertData(myParameters, URL);
 
             if (check)
@@ -35,7 +35,7 @@ namespace BAL
         }
         public bool updateData(string myParameters,int id)
         {
-            string URL= "https://200a-2405-4803-c834-55e0-f5ff-e590-633d-fbc4.ap.ngrok.io/api/phim/";
+            string URL= "https://mfw060.wcom.vn/api/phim/";
             bool check =phimDAL.updateData(myParameters, id, URL);
 
             if (check)

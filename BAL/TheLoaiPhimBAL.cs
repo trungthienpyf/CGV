@@ -14,7 +14,7 @@ namespace BAL
         public List<TheLoaiPhimDTO> readData()
         {
             WebClient wc = new WebClient();
-            string json = wc.DownloadString("https://200a-2405-4803-c834-55e0-f5ff-e590-633d-fbc4.ap.ngrok.io/api/theLoaiPhim");
+            string json = wc.DownloadString("https://mfw060.wcom.vn/api/theLoaiPhim");
 
             List<TheLoaiPhimDTO> ds = JsonConvert.DeserializeObject<List<TheLoaiPhimDTO>>(json);
 
