@@ -10,146 +10,168 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using BAL;
+using DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace QLCGV.Admin
 {
-    public partial class Phim : Form
+   
+    public  partial class Phim : Form
     {
-        string _conn = "server=TRUNGTHIEN\\SQLEXPRESS; database=_QLRP; Integrated security=True";
+        PhimBAL phim = new PhimBAL();
+        //  string _conn = "server=TRUNGTHIEN\\SQLEXPRESS; database=_QLRP; Integrated security=True";
+
        
-        DataTable table = new DataTable();
 
         public Phim()
         {
             InitializeComponent();
             
         }
-        private int getSelectedRow(string id)
-        {
-            for (int i = 0; i < dgv.Rows.Count; i++)
-            {
-                if (dgv.Rows[i].Cells[0].Value.ToString() == id)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
+     
       
         private void button1_Click(object sender, EventArgs e)
         {
+            PhimDTO phimDTO = new PhimDTO();
             try
             {
+                if (labelId.Text != "")
+                {
+                    throw new Exception("Vui long xoa ma truoc khi them du lieu");
+                }
                 if (textPhim.Text == "" || textTg.Text == "" || comboTL.Text == "" || richTextBox1.Text == "")
                 {
                     throw new Exception("vui long nhap day du thong tin");
                 }
-                int selectedRow = getSelectedRow(textMa.Text);
-                if (selectedRow == -1)
-                {
-                                
-                    SqlConnection conn = new SqlConnection();
-                    string query = "insert into Phim(maPhim,tenPhim,mota,thoigian,matheloai) values('" + textMa.Text + "','" + textPhim.Text + "','" + richTextBox1.Text + "','" + textTg.Text + "','" + comboTL.SelectedValue + "')";
-                    conn.ConnectionString = _conn;
+               
+                phimDTO.tenPhim = textPhim.Text;
+                phimDTO.moTa = richTextBox1.Text;
+                phimDTO.thoiGian = textTg.Text;
+                phimDTO.maTheLoai = comboTL.SelectedValue.ToString();
+                string query = string.Format("tenPhim={0}&moTa={1}&thoiGian={2}&maTheLoai={3}",
+               phimDTO.tenPhim, phimDTO.moTa, phimDTO.thoiGian, phimDTO.maTheLoai);
+                bool check =  phim.insertData(query);
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    conn.Open();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
+                if (check == true)
+                {
                     MessageBox.Show("Them moi du lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
                     load();
                 }
                 else
                 {
-
-                SqlConnection conn = new SqlConnection();
-                string query = "update  Phim set tenPhim='" + textPhim.Text +"',mota='" + richTextBox1.Text +"', thoigian='" + textTg.Text +"',matheloai='" + comboTL.SelectedValue + "' where maPhim='" + textMa.Text + "'";
-                conn.ConnectionString = _conn;
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                conn.Open();
-                cmd.CommandType = CommandType.Text;
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                  
-                MessageBox.Show("Cap nhat du lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
-                load();
+                    throw new Exception("Them khong thanh cong");
                 }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            PhimDTO phimDTO = new PhimDTO();
+            try
+            {
+                if (labelId.Text == "")
+                {
+                    throw new Exception("Vui long chon phim can xoa tren bang");
+                }
 
+                phimDTO.tenPhim = textPhim.Text;
+                phimDTO.moTa = richTextBox1.Text;
+                phimDTO.thoiGian = textTg.Text;
+                phimDTO.maTheLoai = comboTL.SelectedValue.ToString();
+                string query = string.Format("tenPhim={0}&moTa={1}&thoiGian={2}&maTheLoai={3}",
+               phimDTO.tenPhim, phimDTO.moTa, phimDTO.thoiGian, phimDTO.maTheLoai);
+               bool check= phim.updateData(query, int.Parse(labelId.Text));
+                if (check == true)
+                {
+                    MessageBox.Show("Cap nhat phim lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
+                    load();
+                }
+                else
+                {
+                    throw new Exception("Sua khong thanh cong");
+                }
+
+               
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void clearText()
+        {
+            labelId.Text = "";
+            textPhim.Text ="";
+            richTextBox1.Text ="";
+            textTg.Text = "";
+            comboTL.SelectedIndex = 0;
+        }
         private void getNameCategoryMovie()
         {
-            SqlConnection conn = new SqlConnection();
-            string query = "Select matheloai,tenTheLoai  from TheLoaiPhim";
-            conn.ConnectionString = _conn;
-            DataTable table2 = new DataTable();
-            using (var adapter = new SqlDataAdapter(query, conn))
-            {
 
-                table2.Clear();
-                adapter.Fill(table2);
-                comboTL.DataSource = table2;
-                comboTL.ValueMember = "matheloai";
-                comboTL.DisplayMember = "tenTheLoai";
 
-                /*   foreach (DataRow dr in table2.Rows)
-                   {
-                        comboTL.DataSource = dr; = "CategoryName";
-                       comboTL.DisplayMember.Add(dr["tenTheLoai"].ToString());
-   ComboForCategory.ValueMember = "CategoryId";
+            TheLoaiPhimBAL tlp = new TheLoaiPhimBAL();
+           var ds= tlp.readData();
 
-                        comboTL.Items.Add(dr["tenTheLoai"].ToString());
-                         comboTL.
-                         comboTL.Text = dr["tenTheLoai"].ToString();
-            }
-            */
-            }
-            conn.Close();
+
+            var list = new BindingList<TheLoaiPhimDTO>(ds);
+            var source = new BindingSource(list, null);
+            comboTL.DataSource = source;
+          
+            comboTL.ValueMember = "ID";
+            comboTL.DisplayMember = "tenTheLoai";
+
         }
+
+        
         private void load()
         {
-            SqlConnection conn = new SqlConnection();
+            getNameCategoryMovie();
+            List<PhimDTO> ds = phim.readData();
 
-            string query = "Select maPhim as #,tenPhim as 'Tên phim',mota as 'Mô tả',thoigian as 'Thời lượng phim',tenTheLoai as 'Thể loại' from Phim join TheLoaiPhim on Phim.maTheLoai=TheloaiPhim.maTheLoai";
-
-            conn.ConnectionString = _conn;
-
-            using (var adapter = new SqlDataAdapter(query, conn))
-            {
-
-                table.Clear();
-                adapter.Fill(table);
-                this.dgv.DataSource = table;
-            }
-
-            conn.Close();
+            var list = new BindingList<PhimDTO>(ds);
+            var source = new BindingSource(list, null);
+            dgv.DataSource = source;
+            dgv.Columns[0].HeaderText = "id";
+            dgv.Columns[1].HeaderText = "Mo Ta";
+            dgv.Columns[0].HeaderText = "Thoi gian phim";
+            dgv.Columns[0].HeaderText = "Ma The Loai";
+            clearText();
         }
-        //private void Phim_Load(object sender, EventArgs e)
-        //{
-        //    // TODO: This line of code loads data into the '_QLRPDataSet1.PHONG' table. You can move, or remove it, as needed.
-        //    this.pHONGTableAdapter.Fill(this._QLRPDataSet1.PHONG);
-        //    // TODO: This line of code loads data into the '_QLRPDataSet.LICHCHIEU' table. You can move, or remove it, as needed.
-        //    this.lICHCHIEUTableAdapter.Fill(this._QLRPDataSet.LICHCHIEU);
-        //    getNameCategoryMovie();
-        //    load();
-        //}
+       
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
           
             int i ;
             i = dgv.CurrentRow.Index;
-            textMa.Text = dgv.Rows[i].Cells[0].Value.ToString();
+            labelId.Text = dgv.Rows[i].Cells[0].Value.ToString();
             textPhim.Text = dgv.Rows[i].Cells[1].Value.ToString();
             richTextBox1.Text = dgv.Rows[i].Cells[2].Value.ToString();
             textTg.Text = dgv.Rows[i].Cells[3].Value.ToString();
             comboTL.Text = dgv.Rows[i].Cells[4].Value.ToString();
+        }
+
+        private void Phim_Load(object sender, EventArgs e)
+        {
+            load();
+        }
+
+        private void textMa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            clearText();
         }
     }
 }
