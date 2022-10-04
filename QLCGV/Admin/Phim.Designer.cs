@@ -44,10 +44,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelId = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.labelId = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lICHCHIEUBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._QLRPDataSet)).BeginInit();
@@ -181,6 +181,7 @@
             this.button2.TabIndex = 12;
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 
@@ -203,34 +204,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phim";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 22);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Mã Phim";
-            // 
-            // labelId
-            // 
-            this.labelId.AutoSize = true;
-            this.labelId.Location = new System.Drawing.Point(119, 53);
-            this.labelId.Name = "labelId";
-            this.labelId.Size = new System.Drawing.Size(0, 28);
-            this.labelId.TabIndex = 12;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(110, 395);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 32);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Sửa";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -241,6 +214,34 @@
             this.button5.Text = "clear";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // labelId
+            // 
+            this.labelId.AutoSize = true;
+            this.labelId.Location = new System.Drawing.Point(119, 53);
+            this.labelId.Name = "labelId";
+            this.labelId.Size = new System.Drawing.Size(0, 28);
+            this.labelId.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 22);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Mã Phim";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(110, 395);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(87, 32);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "Sửa";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Phim
             // 

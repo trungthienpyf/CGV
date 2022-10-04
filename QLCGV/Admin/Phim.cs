@@ -13,6 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using BAL;
 using DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Net;
 
 namespace QLCGV.Admin
 {
@@ -20,17 +21,12 @@ namespace QLCGV.Admin
     public  partial class Phim : Form
     {
         PhimBAL phim = new PhimBAL();
-        //  string _conn = "server=TRUNGTHIEN\\SQLEXPRESS; database=_QLRP; Integrated security=True";
-
-       
 
         public Phim()
         {
             InitializeComponent();
-            
         }
-     
-      
+
         private void button1_Click(object sender, EventArgs e)
         {
             PhimDTO phimDTO = new PhimDTO();
@@ -172,6 +168,21 @@ namespace QLCGV.Admin
         private void button5_Click(object sender, EventArgs e)
         {
             clearText();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+                WebRequest request = WebRequest.Create("https://mfw060.wcom.vn/api/phim/" + labelId.Text);
+                request.Method = "DELETE";
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                if (response.StatusCode == HttpStatusCode.OK)
+                    MessageBox.Show("Xoa thanh cong");
+                else
+                    MessageBox.Show("Co loi xay ra");
+            load();
+
         }
     }
 }
