@@ -64,3 +64,15 @@ C:\Users\PC\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.csproj.GenerateResource.c
 C:\Users\PC\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.csproj.CoreCompileInputs.cache
 C:\Users\PC\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.exe
 C:\Users\PC\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.pdb
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.Admin.Phong.resources
+D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.Admin.NhanVien.resources
+D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.Admin.Phong.resources
+D:\gitCloneC#\clone\CGV\QLCGV\bin\Debug\BAL.dll
+D:\gitCloneC#\clone\CGV\QLCGV\bin\Debug\DAL.dll
+D:\gitCloneC#\clone\CGV\QLCGV\bin\Debug\DTO.dll
+D:\gitCloneC#\clone\CGV\QLCGV\bin\Debug\Newtonsoft.Json.dll
+D:\gitCloneC#\clone\CGV\QLCGV\bin\Debug\BAL.pdb
+D:\gitCloneC#\clone\CGV\QLCGV\bin\Debug\DAL.pdb
+D:\gitCloneC#\clone\CGV\QLCGV\bin\Debug\DTO.pdb
+D:\gitCloneC#\clone\CGV\QLCGV\bin\Debug\Newtonsoft.Json.xml
+D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.csproj.CopyComplete

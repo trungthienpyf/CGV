@@ -1,0 +1,13 @@
+D:\gitCloneC#\clone\CGV\BAL\bin\Debug\BAL.dll
+D:\gitCloneC#\clone\CGV\BAL\bin\Debug\BAL.pdb
+D:\gitCloneC#\clone\CGV\BAL\bin\Debug\Newtonsoft.Json.dll
+D:\gitCloneC#\clone\CGV\BAL\bin\Debug\Newtonsoft.Json.xml
+D:\gitCloneC#\clone\CGV\BAL\obj\Debug\BAL.csproj.AssemblyReference.cache
+D:\gitCloneC#\clone\CGV\BAL\obj\Debug\BAL.csproj.CoreCompileInputs.cache
+D:\gitCloneC#\clone\CGV\BAL\obj\Debug\BAL.csproj.CopyComplete
+D:\gitCloneC#\clone\CGV\BAL\obj\Debug\BAL.dll
+D:\gitCloneC#\clone\CGV\BAL\obj\Debug\BAL.pdb
+D:\gitCloneC#\clone\CGV\BAL\bin\Debug\DAL.dll
+D:\gitCloneC#\clone\CGV\BAL\bin\Debug\DTO.dll
+D:\gitCloneC#\clone\CGV\BAL\bin\Debug\DAL.pdb
+D:\gitCloneC#\clone\CGV\BAL\bin\Debug\DTO.pdb

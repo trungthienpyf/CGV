@@ -121,9 +121,9 @@ namespace QLCGV.Admin
         private void LichChieu_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the '_QLRPDataSet2.LICHCHIEU' table. You can move, or remove it, as needed.
-            this.lICHCHIEUTableAdapter.Fill(this._QLRPDataSet2.LICHCHIEU);
+           // this.lICHCHIEUTableAdapter.Fill(this._QLRPDataSet2.LICHCHIEU);
             // TODO: This line of code loads data into the '_QLRPDataSet1.PHONG' table. You can move, or remove it, as needed.
-            this.pHONGTableAdapter.Fill(this._QLRPDataSet1.PHONG);
+           // this.pHONGTableAdapter.Fill(this._QLRPDataSet1.PHONG);
             dateTimePicker1.Format = DateTimePickerFormat.Short;
             dateTimePicker1.Value = DateTime.Today;
         }

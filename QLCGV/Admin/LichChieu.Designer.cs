@@ -37,7 +37,7 @@
             this.ngayChieuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maPhongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lICHCHIEUBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._QLRPDataSet2 = new QLCGV._QLRPDataSet2();
+            
             this._QLRPDataSet1 = new QLCGV._QLRPDataSet1();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -54,11 +54,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.pHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pHONGTableAdapter = new QLCGV._QLRPDataSet1TableAdapters.PHONGTableAdapter();
-            this.lICHCHIEUTableAdapter = new QLCGV._QLRPDataSet2TableAdapters.LICHCHIEUTableAdapter();
+          
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lICHCHIEUBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._QLRPDataSet2)).BeginInit();
+          
             ((System.ComponentModel.ISupportInitialize)(this._QLRPDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pHONGBindingSource)).BeginInit();
@@ -155,12 +154,11 @@
             // lICHCHIEUBindingSource
             // 
             this.lICHCHIEUBindingSource.DataMember = "LICHCHIEU";
-            this.lICHCHIEUBindingSource.DataSource = this._QLRPDataSet2;
+           
             // 
             // _QLRPDataSet2
             // 
-            this._QLRPDataSet2.DataSetName = "_QLRPDataSet2";
-            this._QLRPDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+          
             // 
             // _QLRPDataSet1
             // 
@@ -334,11 +332,11 @@
             // 
             // pHONGTableAdapter
             // 
-            this.pHONGTableAdapter.ClearBeforeFill = true;
+           
             // 
             // lICHCHIEUTableAdapter
             // 
-            this.lICHCHIEUTableAdapter.ClearBeforeFill = true;
+         
             // 
             // LichChieu
             // 
@@ -356,7 +354,7 @@
             this.Load += new System.EventHandler(this.LichChieu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lICHCHIEUBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._QLRPDataSet2)).EndInit();
+           
             ((System.ComponentModel.ISupportInitialize)(this._QLRPDataSet1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -387,10 +385,10 @@
         private System.Windows.Forms.Button button4;
         private _QLRPDataSet1 _QLRPDataSet1;
         private System.Windows.Forms.BindingSource pHONGBindingSource;
-        private _QLRPDataSet1TableAdapters.PHONGTableAdapter pHONGTableAdapter;
-        private _QLRPDataSet2 _QLRPDataSet2;
+        
+        
         private System.Windows.Forms.BindingSource lICHCHIEUBindingSource;
-        private _QLRPDataSet2TableAdapters.LICHCHIEUTableAdapter lICHCHIEUTableAdapter;
+     
         private System.Windows.Forms.DataGridViewTextBoxColumn maLichChieuDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gioBatDauDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn gioKetThucDataGridViewTextBoxColumn;
