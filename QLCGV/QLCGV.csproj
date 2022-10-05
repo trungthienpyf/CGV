@@ -120,11 +120,22 @@
     <Compile Include="User\User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <Compile Include="_QLRPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_QLRPDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\NhanVien.resx">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Phim.resx">
       <DependentUpon>Phim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Phong.resx">
+      <DependentUpon>Phong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DangKy.resx">
       <DependentUpon>DangKy.cs</DependentUpon>
@@ -156,6 +167,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_QLRPDataSet.xsc">
+      <DependentUpon>_QLRPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_QLRPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_QLRPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_QLRPDataSet.xss">
+      <DependentUpon>_QLRPDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

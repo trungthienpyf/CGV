@@ -20,7 +20,7 @@ namespace QLCGV.Admin
         private void button1_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
+           // this.Hide();
             new Phim().Show();
 
         }
