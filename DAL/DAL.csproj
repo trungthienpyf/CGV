@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ApiService.cs" />
     <Compile Include="PhimDAL.cs" />
+    <Compile Include="PhongDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
