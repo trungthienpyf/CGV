@@ -8,5 +8,8 @@ namespace DTO
 {
     public class PhongDTO
     {
+        public int ID { get; set; }
+        public string tenPhong { get; set; }
+
     }
 }
