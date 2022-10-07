@@ -85,3 +85,12 @@ C:\Users\PC\Documents\GitHub\CGV\QLCGV\bin\Debug\DAL.pdb
 C:\Users\PC\Documents\GitHub\CGV\QLCGV\bin\Debug\DTO.pdb
 C:\Users\PC\Documents\GitHub\CGV\QLCGV\bin\Debug\Newtonsoft.Json.xml
 C:\Users\PC\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.csproj.CopyComplete
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\bin\Debug\BAL.dll
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\bin\Debug\DAL.dll
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\bin\Debug\DTO.dll
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\bin\Debug\BAL.pdb
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\bin\Debug\DAL.pdb
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\bin\Debug\DTO.pdb
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.csproj.CopyComplete

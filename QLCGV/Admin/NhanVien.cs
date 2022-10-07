@@ -1,10 +1,16 @@
-﻿using System;
+﻿using BAL;
+using DAL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Reflection.Emit;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,155 +20,176 @@ namespace QLCGV.Admin
 {
     public partial class NhanVien : Form
     {
+        AdminBAL admin = new AdminBAL();
+
         public NhanVien()
         {
             InitializeComponent();
         }
         //ket noi SQL
-        string _conn = "server=LAPTOP-FL07KQOI; database=_QLRP; Integrated security=True";
-
-        DataTable table = new DataTable();
-
-        private int getSelectedRow(string id)
-        {
-            for (int i = 0; i < dgv.Rows.Count; i++)
-            {
-                if (dgv.Rows[i].Cells[0].Value.ToString() == id)
-                {
-                    return i;
-                }
-            }
-            return -1;
-        }
-
-        private void btnUpdate_Insert_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtHoTen.Text == "" || txtPass.Text == "" || cmbCV.Text == "")
-                {
-                    throw new Exception("Vui lòng nhập đầy đủ thông tin");
-                }
-                if (txtPass.Text.Length < 6)
-                {
-                    throw new Exception("Mật khẩu phải đủ 6 ký tự");
-                }
-                int selectedRow = getSelectedRow(txtID.Text);
-                if (selectedRow == -1)
-                {
-                    SqlConnection conn = new SqlConnection();
-                    string query = "insert into Admin(maAdmin,tenAdmin,chucVu, matKhau) values('" + txtID.Text + "','" + txtHoTen.Text + "','" + cmbCV.Text + "','" + txtPass.Text + "')";
-                    conn.ConnectionString = _conn;
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    conn.Open();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                    MessageBox.Show("Thêm dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK);
-                    load();
-                }
-                else
-                {
-                    SqlConnection conn = new SqlConnection();
-                    string query = "update  Admin set tenAdmin='" + txtHoTen.Text + "', chucVu='" + cmbCV.Text + "',matKhau='" + txtPass.Text + "' where maAdmin='" + txtID.Text + "'";
-                    conn.ConnectionString = _conn;
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    conn.Open();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-
-                    MessageBox.Show("Cập nhật dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK);
-                    load();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
         private void load()
         {
-            SqlConnection conn = new SqlConnection();
-            string query = "Select * from Admin ";
+            List<AdminDTO> ds = admin.readData();
 
-            conn.ConnectionString = _conn;
+            var list = new BindingList<AdminDTO>(ds);
+            var source = new BindingSource(list, null);
+            dgv.DataSource = source;
+            dgv.Columns[0].HeaderText = "ID";
+            dgv.Columns[1].HeaderText = "Tên Admin";
+            dgv.Columns[2].HeaderText = "Tài Khoản";
+            dgv.Columns[3].HeaderText = "Mật Khẩu";
+            dgv.Columns[4].HeaderText = "Chức Vụ";
+            clearText();
 
-            using (var adapter = new SqlDataAdapter(query, conn))
-            {
-                table.Clear();
-                adapter.Fill(table);
-                this.dgv.DataSource = table;
-            }
-            conn.Close();
         }
-
-        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void clearText()
         {
-            int i;
-            i = dgv.CurrentRow.Index;
-            txtID.Text = dgv.Rows[i].Cells[0].Value.ToString();
-            txtHoTen.Text = dgv.Rows[i].Cells[1].Value.ToString(); 
-            cmbCV.Text = dgv.Rows[i].Cells[2].Value.ToString();
-            txtPass.Text = dgv.Rows[i].Cells[3].Value.ToString();
+            lbID.Text = "";
+            txtTenAdm.Text = "";
+            txtAccount.Text = "";
+            txtPass.Text = "";
+            cmbCV.Text = "";
         }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int selectedRow = getSelectedRow(txtID.Text);
-
-                if (selectedRow == -1)
-                {
-                    throw new Exception("Không có phòng để xóa ");
-                }
-                else
-                {
-                    DialogResult dr = MessageBox.Show("Bạn có muốn xóa? ", "YES/NO", MessageBoxButtons.YesNo);
-                    if (dr == DialogResult.Yes)
-                    {
-                        dgv.Rows.RemoveAt(selectedRow);
-
-                        SqlConnection conn = new SqlConnection();
-                        string query = "DELETE dbo.Admin  where maAdmin=" + txtID.Text;
-                        conn.ConnectionString = _conn;
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        conn.Open();
-                        cmd.CommandType = CommandType.Text;
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-
-                        MessageBox.Show("Cập nhật dữ liệu thành công!", "Thông Báo", MessageBoxButtons.OK);
-                        load();
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
             new Admin().Show();
         }
 
-        private void NV_Load(object sender, EventArgs e)
-        {
-            load();
-        }
-
         private void NhanVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the '_QLRPDataSet1.ADMIN' table. You can move, or remove it, as needed.
-            this.aDMINTableAdapter.Fill(this._QLRPDataSet1.ADMIN);
+            load();
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearText();
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            AdminDTO adminDTO = new AdminDTO();
+
+            try
+            {
+
+                if (lbID.Text != "")
+                {
+                    throw new Exception("Vui lòng xóa mã trước khi nhập");
+                }
+
+                if (txtTenAdm.Text == "" || txtAccount.Text == "" || txtPass.Text == "" || cmbCV.Text == "")
+                {
+                    throw new Exception("Vui lòng nhập đầy đủ thông tin");
+                }
+                AdminBAL ad = new AdminBAL();
+                var list = ad.readData();
+
+                var checkInclude = list.Where(p => p.TaiKhoan == txtAccount.Text).FirstOrDefault();
+                if (checkInclude != null)
+                {
+                    throw new Exception("Tài khoản đã tồn tại!!!");
+                }
+
+                if (txtPass.Text.Length < 6)
+                {
+                    throw new Exception("Mật khẩu chứa ít nhất 6 ký tự!!");
+                }
+                adminDTO.TenAdmin = txtTenAdm.Text;
+                adminDTO.TaiKhoan = txtAccount.Text;
+                adminDTO.MatKhau = txtPass.Text;
+                adminDTO.ChucVu = cmbCV.Text;
+                string query = string.Format("tenAdmin={0}&taiKhoan={1}&matKhau={2}&chucVu={3}",
+                    adminDTO.TenAdmin, adminDTO.TaiKhoan, adminDTO.MatKhau, adminDTO.ChucVu);
+                /* byte[] bytes = Encoding.Default.GetBytes(query);
+                 query = Encoding.UTF8.GetString(bytes);*/
+                bool check = admin.insertData(query);
+
+                if (check == true)
+                {
+                    MessageBox.Show("Thêm mới dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK);
+                    load();
+                }
+                else
+                {
+                    throw new Exception("Thêm thất bại");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = dgv.CurrentRow.Index;
+            lbID.Text = dgv.Rows[i].Cells[0].Value.ToString();
+            txtTenAdm.Text = dgv.Rows[i].Cells[1].Value.ToString();
+            txtAccount.Text = dgv.Rows[i].Cells[2].Value.ToString();
+            txtPass.Text = dgv.Rows[i].Cells[3].Value.ToString();
+            cmbCV.Text = dgv.Rows[i].Cells[4].Value.ToString();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            AdminDTO adminDTO = new AdminDTO();
+            try
+            {
+                if (lbID.Text == "")
+                {
+                    throw new Exception("Vui long chon phim can xoa tren bang");
+                }
+
+                adminDTO.TenAdmin = txtTenAdm.Text;
+                adminDTO.TaiKhoan = txtAccount.Text;
+                adminDTO.MatKhau = txtPass.Text;
+                adminDTO.ChucVu = cmbCV.Text;
+                string query = string.Format("tenAdmin={0}&taiKhoan={1}&matKhau={2}&chucVu={3}",
+                    adminDTO.TenAdmin, adminDTO.TaiKhoan, adminDTO.MatKhau, adminDTO.ChucVu);
+                bool check = admin.updateData(query, int.Parse(lbID.Text));
+                if (check == true)
+                {
+                    MessageBox.Show("Cap nhat phim lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
+                    load();
+                }
+                else
+                {
+                    throw new Exception("Sua khong thanh cong");
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            WebRequest request = WebRequest.Create("https://mfw060.wcom.vn/api/admin/" + int.Parse(lbID.Text));
+            MessageBox.Show(lbID.Text);
+            request.Method = "DELETE";
+            request.ContentType = @"application/json";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                MessageBox.Show("Xoa thanh cong");
+
+            }
+            else
+            {
+                MessageBox.Show("Co loi xay ra");
+
+            }
+            
+            load();
         }
     }
 }
