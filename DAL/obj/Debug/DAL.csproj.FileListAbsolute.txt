@@ -20,3 +20,14 @@ C:\Users\PC\Documents\GitHub\CGV\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cach
 C:\Users\PC\Documents\GitHub\CGV\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\PC\Documents\GitHub\CGV\DAL\obj\Debug\DAL.dll
 C:\Users\PC\Documents\GitHub\CGV\DAL\obj\Debug\DAL.pdb
+C:\Users\PVT\Documents\GitHub\CGV\DAL\bin\Debug\DAL.dll
+C:\Users\PVT\Documents\GitHub\CGV\DAL\bin\Debug\DAL.pdb
+C:\Users\PVT\Documents\GitHub\CGV\DAL\bin\Debug\DTO.dll
+C:\Users\PVT\Documents\GitHub\CGV\DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PVT\Documents\GitHub\CGV\DAL\bin\Debug\DTO.pdb
+C:\Users\PVT\Documents\GitHub\CGV\DAL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\PVT\Documents\GitHub\CGV\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\PVT\Documents\GitHub\CGV\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\PVT\Documents\GitHub\CGV\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\PVT\Documents\GitHub\CGV\DAL\obj\Debug\DAL.dll
+C:\Users\PVT\Documents\GitHub\CGV\DAL\obj\Debug\DAL.pdb
