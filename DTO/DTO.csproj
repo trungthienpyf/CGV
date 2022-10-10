@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminDTO.cs" />
-    <Compile Include="CTLicChieuDTO.cs" />
     <Compile Include="GheDTO.cs" />
     <Compile Include="HoaDonDTO.cs" />
     <Compile Include="KhachHangDTO.cs" />
