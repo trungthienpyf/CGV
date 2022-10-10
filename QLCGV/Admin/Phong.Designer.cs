@@ -33,26 +33,26 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThemSua = new System.Windows.Forms.Button();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.pHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._QLRPDataSet = new QLCGV._QLRPDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTenPC = new System.Windows.Forms.TextBox();
             this.txtMaPC = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this._QLRPDataSet = new QLCGV._QLRPDataSet();
-            this.pHONGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pHONGTableAdapter = new QLCGV._QLRPDataSetTableAdapters.PHONGTableAdapter();
-            this.maPhongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenPhongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoaMa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._QLRPDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pHONGBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._QLRPDataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnReturn
             // 
-            this.btnReturn.Location = new System.Drawing.Point(289, 399);
+            this.btnReturn.Location = new System.Drawing.Point(277, 399);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(87, 35);
             this.btnReturn.TabIndex = 17;
@@ -62,7 +62,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(179, 399);
+            this.btnXoa.Location = new System.Drawing.Point(394, 399);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(87, 35);
             this.btnXoa.TabIndex = 16;
@@ -76,27 +76,33 @@
             this.btnThemSua.Name = "btnThemSua";
             this.btnThemSua.Size = new System.Drawing.Size(87, 35);
             this.btnThemSua.TabIndex = 15;
-            this.btnThemSua.Text = "Thêm/Sửa";
+            this.btnThemSua.Text = "Thêm";
             this.btnThemSua.UseVisualStyleBackColor = true;
             this.btnThemSua.Click += new System.EventHandler(this.btnThemSua_Click);
             // 
             // dgv
             // 
             this.dgv.AllowUserToAddRows = false;
-            this.dgv.AutoGenerateColumns = false;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maPhongDataGridViewTextBoxColumn,
-            this.tenPhongDataGridViewTextBoxColumn});
-            this.dgv.DataSource = this.pHONGBindingSource;
             this.dgv.Location = new System.Drawing.Point(394, 60);
             this.dgv.Name = "dgv";
             this.dgv.Size = new System.Drawing.Size(244, 326);
             this.dgv.TabIndex = 14;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             // 
+            // pHONGBindingSource
+            // 
+            this.pHONGBindingSource.DataMember = "PHONG";
+            this.pHONGBindingSource.DataSource = this._QLRPDataSet;
+            // 
+            // _QLRPDataSet
+            // 
+            this._QLRPDataSet.DataSetName = "_QLRPDataSet";
+            this._QLRPDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnXoaMa);
             this.groupBox1.Controls.Add(this.txtTenPC);
             this.groupBox1.Controls.Add(this.txtMaPC);
             this.groupBox1.Controls.Add(this.label4);
@@ -118,6 +124,7 @@
             // 
             // txtMaPC
             // 
+            this.txtMaPC.Enabled = false;
             this.txtMaPC.Location = new System.Drawing.Point(125, 37);
             this.txtMaPC.Name = "txtMaPC";
             this.txtMaPC.Size = new System.Drawing.Size(116, 22);
@@ -151,37 +158,36 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Quản Lý Phòng Chiếu";
             // 
-            // _QLRPDataSet
-            // 
-            this._QLRPDataSet.DataSetName = "_QLRPDataSet";
-            this._QLRPDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pHONGBindingSource
-            // 
-            this.pHONGBindingSource.DataMember = "PHONG";
-            this.pHONGBindingSource.DataSource = this._QLRPDataSet;
-            // 
             // pHONGTableAdapter
             // 
             this.pHONGTableAdapter.ClearBeforeFill = true;
             // 
-            // maPhongDataGridViewTextBoxColumn
+            // btnSua
             // 
-            this.maPhongDataGridViewTextBoxColumn.DataPropertyName = "maPhong";
-            this.maPhongDataGridViewTextBoxColumn.HeaderText = "maPhong";
-            this.maPhongDataGridViewTextBoxColumn.Name = "maPhongDataGridViewTextBoxColumn";
+            this.btnSua.Location = new System.Drawing.Point(173, 399);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(87, 35);
+            this.btnSua.TabIndex = 18;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // tenPhongDataGridViewTextBoxColumn
+            // btnXoaMa
             // 
-            this.tenPhongDataGridViewTextBoxColumn.DataPropertyName = "tenPhong";
-            this.tenPhongDataGridViewTextBoxColumn.HeaderText = "tenPhong";
-            this.tenPhongDataGridViewTextBoxColumn.Name = "tenPhongDataGridViewTextBoxColumn";
+            this.btnXoaMa.Location = new System.Drawing.Point(9, 138);
+            this.btnXoaMa.Name = "btnXoaMa";
+            this.btnXoaMa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoaMa.TabIndex = 8;
+            this.btnXoaMa.Text = "Xóa Mã";
+            this.btnXoaMa.UseVisualStyleBackColor = true;
+            this.btnXoaMa.Click += new System.EventHandler(this.btnXoaMa_Click);
             // 
             // Phong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 450);
+            this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThemSua);
@@ -192,10 +198,10 @@
             this.Text = "Phong";
             this.Load += new System.EventHandler(this.Phong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pHONGBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._QLRPDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._QLRPDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pHONGBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,7 +222,7 @@
         private _QLRPDataSet _QLRPDataSet;
         private System.Windows.Forms.BindingSource pHONGBindingSource;
         private _QLRPDataSetTableAdapters.PHONGTableAdapter pHONGTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maPhongDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenPhongDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnXoaMa;
     }
 }

@@ -1,30 +1,30 @@
-﻿using DTO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
+using Newtonsoft.Json.Linq;
+
+using Newtonsoft.Json;
 
 namespace DAL
 {
-    public class PhimDAL
+    public class PhongDAL
     {
-
-        public List<PhimDTO> readData(string URL)
+        public List<PhongDTO> readData(string URL)
         {
             WebClient wc = new WebClient();
             string json = wc.DownloadString(URL);
 
-            List<PhimDTO> ds = JsonConvert.DeserializeObject<List<PhimDTO>>(json);
-            
+            List<PhongDTO> ds = JsonConvert.DeserializeObject<List<PhongDTO>>(json);
+
             return ds;
         }
-        public bool insertData(string myParameters,string URL)
+        public bool insertData(string myParameters, string URL)
         {
-
+           
             using (WebClient wc = new WebClient())
             {
                 wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
@@ -38,7 +38,7 @@ namespace DAL
                     return false;
             };
         }
-        public bool updateData(string myParameters, int id,string URL)
+        public bool updateData(string myParameters, int id, string URL)
         {
 
             var bytes = Encoding.ASCII.GetBytes(myParameters);

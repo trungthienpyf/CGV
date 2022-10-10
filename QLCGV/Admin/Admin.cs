@@ -56,5 +56,42 @@ namespace QLCGV.Admin
             this.Hide();
             new TheLoaiPhim().Show();
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new TheLoaiPhim().Show();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            // this.Hide();
+            new Phim().Show();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            new Phong().Show();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new LichChieu().Show();
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new NhanVien().Show();
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new KhachHang().Show();
+        }
     }
 }

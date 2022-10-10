@@ -1,6 +1,6 @@
 ﻿using DTO;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +10,24 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class PhimDAL
+    public class AdminDAL
     {
-
-        public List<PhimDTO> readData(string URL)
+        public List<AdminDTO> readData(string URL)
         {
             WebClient wc = new WebClient();
             string json = wc.DownloadString(URL);
 
-            List<PhimDTO> ds = JsonConvert.DeserializeObject<List<PhimDTO>>(json);
-            
+            List<AdminDTO> ds = JsonConvert.DeserializeObject<List<AdminDTO>>(json);
+
             return ds;
         }
-        public bool insertData(string myParameters,string URL)
+        public bool insertData(string myParameters, string URL)
         {
 
             using (WebClient wc = new WebClient())
             {
-                wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                wc.Encoding = UTF8Encoding.UTF8;
+                wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded; charset=utf-8";
                 string HtmlResult = wc.UploadString(URL, myParameters);
 
                 var jo = JObject.Parse(HtmlResult);
@@ -38,11 +38,12 @@ namespace DAL
                     return false;
             };
         }
-        public bool updateData(string myParameters, int id,string URL)
+        public bool updateData(string myParameters, int id, string URL)
         {
 
-            var bytes = Encoding.ASCII.GetBytes(myParameters);
+            var bytes = Encoding.UTF8.GetBytes(myParameters);
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format(URL + id));
+
             request.Method = "PUT";
             request.ContentType = "application/x-www-form-urlencoded";
             using (var requestStream = request.GetRequestStream())
