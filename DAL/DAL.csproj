@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="AdminDAL.cs" />
     <Compile Include="ApiService.cs" />
+    <Compile Include="LichChieuDAL.cs" />
     <Compile Include="PhimDAL.cs" />
     <Compile Include="PhongDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

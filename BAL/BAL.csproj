@@ -44,7 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="LichChieuBAL.cs" />
+
     <Compile Include="AdminBAL.cs" />
+
     <Compile Include="PhimBAL.cs" />
     <Compile Include="PhongBAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

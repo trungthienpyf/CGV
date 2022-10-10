@@ -46,7 +46,7 @@ namespace QLCGV.Admin
                 phimDTO.thoiGian = textTg.Text;
                 phimDTO.maTheLoai = comboTL.SelectedValue.ToString();
                 string query = string.Format("tenPhim={0}&moTa={1}&thoiGian={2}&maTheLoai={3}",
-               phimDTO.tenPhim, phimDTO.moTa, phimDTO.thoiGian, phimDTO.maTheLoai);
+                phimDTO.tenPhim, phimDTO.moTa, phimDTO.thoiGian, phimDTO.maTheLoai);
                 bool check =  phim.insertData(query);
 
                 if (check == true)
@@ -92,8 +92,6 @@ namespace QLCGV.Admin
                 {
                     throw new Exception("Sua khong thanh cong");
                 }
-
-               
 
             }
             catch (Exception ex)
@@ -182,6 +180,71 @@ namespace QLCGV.Admin
                 else
                     MessageBox.Show("Co loi xay ra");
             load();
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lICHCHIEUBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textPhim_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textTg_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboTL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }
