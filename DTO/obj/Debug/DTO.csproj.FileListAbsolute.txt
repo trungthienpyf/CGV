@@ -7,12 +7,3 @@ D:\gitCloneC#\clone\CGV\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\gitCloneC#\clone\CGV\DTO\obj\Debug\DTO.csproj.CopyComplete
 D:\gitCloneC#\clone\CGV\DTO\obj\Debug\DTO.dll
 D:\gitCloneC#\clone\CGV\DTO\obj\Debug\DTO.pdb
-C:\Users\ADMIN\Documents\GitHub\CGV\DTO\bin\Debug\DTO.dll
-C:\Users\ADMIN\Documents\GitHub\CGV\DTO\bin\Debug\DTO.pdb
-C:\Users\ADMIN\Documents\GitHub\CGV\DTO\bin\Debug\Newtonsoft.Json.dll
-C:\Users\ADMIN\Documents\GitHub\CGV\DTO\bin\Debug\Newtonsoft.Json.xml
-C:\Users\ADMIN\Documents\GitHub\CGV\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
-C:\Users\ADMIN\Documents\GitHub\CGV\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
-C:\Users\ADMIN\Documents\GitHub\CGV\DTO\obj\Debug\DTO.csproj.CopyComplete
-C:\Users\ADMIN\Documents\GitHub\CGV\DTO\obj\Debug\DTO.dll
-C:\Users\ADMIN\Documents\GitHub\CGV\DTO\obj\Debug\DTO.pdb

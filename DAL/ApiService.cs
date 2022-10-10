@@ -22,15 +22,6 @@ namespace DAL
 
             return ds;
         }
-        public List<AdminDTO> readAdminData()
-        {
-            WebClient wc = new WebClient();
-            string json = wc.DownloadString("https://mfw060.wcom.vn/api/admin");
-
-            List<AdminDTO> ds = JsonConvert.DeserializeObject<List<AdminDTO>>(json);
-
-            return ds;
-        }
         public bool insertData(string myParameters)
         {
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class LichChieuDTO
+    public class CTLicChieuDTO
     {
     }
 }
