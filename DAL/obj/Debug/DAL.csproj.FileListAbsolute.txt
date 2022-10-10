@@ -9,3 +9,14 @@ D:\gitCloneC#\clone\CGV\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\gitCloneC#\clone\CGV\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\gitCloneC#\clone\CGV\DAL\obj\Debug\DAL.dll
 D:\gitCloneC#\clone\CGV\DAL\obj\Debug\DAL.pdb
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\bin\Debug\DAL.dll
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\bin\Debug\DAL.pdb
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\bin\Debug\DTO.dll
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\bin\Debug\DTO.pdb
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\obj\Debug\DAL.dll
+C:\Users\ADMIN\Documents\GitHub\CGV\DAL\obj\Debug\DAL.pdb

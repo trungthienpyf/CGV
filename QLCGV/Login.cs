@@ -1,9 +1,11 @@
-﻿using QLCGV.Admin;
+﻿using DAL;
+using QLCGV.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -38,41 +40,25 @@ namespace QLCGV
                 this.Hide();
                 new User.User().Show();
             }
-
-            /* bool check = false;
-             SqlConnection n = new SqlConnection(@"Data Source=LAPTOP-PCHHO158;Initial Catalog=_QLRP;Integrated Security=True");
-             string hh = txtTk.Text;
-             string mk = textPass.Text;
-             n.Open();
-
-             SqlConnection nn = new SqlConnection(@"Data Source=LAPTOP-PCHHO158;Initial Catalog=_QLRP;Integrated Security=True");
-             string sqll = "select * from ADMIN where tenAdmin ='" + hh + "' and matKhau = '" + mk + "'";
-             SqlCommand cmdd = new SqlCommand(sqll, n);
-
-             SqlDataReader datt = cmdd.ExecuteReader();
-             string sql = "select * from KHACHHANG where SDT ='" + hh + "' and matKhau = '" + mk + "'";
-             if (datt.Read() == true)
-             {
-                 check = true;
-                 this.Hide();
-                 var admin = new Admin.Admin();
-                 admin.Show();              
-             }
-             datt.Close();
-             SqlCommand cmd = new SqlCommand(sql, n);
-             SqlDataReader dat = cmd.ExecuteReader();
-
-             if (dat.Read() == true)
-             {
-                 check = true;
-                 this.Hide();
-                 var user = new User.User();
-                 user.Show();
-             }
-             if (check == false)
-             {
-                 MessageBox.Show("Kiểm tra lại thông tin của bạn :::");
-             }*/
+            ApiService api = new ApiService();
+            var khachHang = api.readData();
+            var listAdmin = api.readAdminData();
+            bool checkAdmin = listAdmin.Any(x=>x.TaiKhoan== textTk.Text && x.MatKhau== textPass.Text);
+            bool checkUser = khachHang.Any(x=>x.email == textTk.Text && x.matKhau== textPass.Text);
+            if (checkAdmin)
+            {
+                this.Hide();
+                var admin = new Admin.Admin();
+                admin.Show();
+            }
+            if (checkUser)
+            {
+                this.Hide();
+                var user = new User.User();
+                user.Show();
+            }
+            else
+                MessageBox.Show("Kiểm tra lại thông tin của bạn :::");
         }
         private void button2_Click(object sender, EventArgs e)
         {
