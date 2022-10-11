@@ -13,5 +13,6 @@ namespace DTO
         public string sdt { get; set; }
         public string email { get; set; }
         public string matKhau { get; set; }
+        public string diaChi { get; set; }
     }
 }
