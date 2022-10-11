@@ -28,8 +28,10 @@ namespace QLCGV
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
-            if(textTk.Text==tk && textPass.Text == mk)
+            MessageBox.Show("1");
+            MessageBox.Show("1");
+            MessageBox.Show("1");
+           /* if(textTk.Text==tk && textPass.Text == mk)
             {
                 this.Hide();
                 new Admin.Admin().Show();
@@ -39,7 +41,7 @@ namespace QLCGV
             {
                 this.Hide();
                 new User.User().Show();
-            }
+            }*/
             ApiService api = new ApiService();
             var khachHang = api.readData();
             var listAdmin = api.readAdminData();
@@ -97,6 +99,11 @@ namespace QLCGV
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("a");
         }
     }
 }
