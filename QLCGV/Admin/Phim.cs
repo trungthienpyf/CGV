@@ -26,7 +26,8 @@ namespace QLCGV.Admin
         {
             InitializeComponent();
         }
-
+        public int coordsX { get; set; }
+        public int coordsY { get; set; }
         private void button1_Click(object sender, EventArgs e)
         {
             PhimDTO phimDTO = new PhimDTO();
@@ -44,7 +45,7 @@ namespace QLCGV.Admin
                 phimDTO.tenPhim = textPhim.Text;
                 phimDTO.moTa = richTextBox1.Text;
                 phimDTO.thoiGian = textTg.Text;
-                phimDTO.maTheLoai = comboTL.SelectedValue.ToString();
+                phimDTO.maTheLoai = (int)comboTL.SelectedValue;
                 string query = string.Format("tenPhim={0}&moTa={1}&thoiGian={2}&maTheLoai={3}",
                 phimDTO.tenPhim, phimDTO.moTa, phimDTO.thoiGian, phimDTO.maTheLoai);
                 bool check =  phim.insertData(query);
@@ -79,7 +80,7 @@ namespace QLCGV.Admin
                 phimDTO.tenPhim = textPhim.Text;
                 phimDTO.moTa = richTextBox1.Text;
                 phimDTO.thoiGian = textTg.Text;
-                phimDTO.maTheLoai = comboTL.SelectedValue.ToString();
+                phimDTO.maTheLoai = (int)comboTL.SelectedValue;
                 string query = string.Format("tenPhim={0}&moTa={1}&thoiGian={2}&maTheLoai={3}",
                phimDTO.tenPhim, phimDTO.moTa, phimDTO.thoiGian, phimDTO.maTheLoai);
                bool check= phim.updateData(query, int.Parse(labelId.Text));

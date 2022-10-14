@@ -17,6 +17,7 @@ namespace QLCGV
 {
     public partial class Login : Form
     {
+        public static string id ;
         string tk = "admin";
         string mk = "admin";
         string tkuser = "user";
@@ -28,9 +29,7 @@ namespace QLCGV
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("1");
-            MessageBox.Show("1");
-            MessageBox.Show("1");
+            
            /* if(textTk.Text==tk && textPass.Text == mk)
             {
                 this.Hide();
@@ -45,6 +44,7 @@ namespace QLCGV
             ApiService api = new ApiService();
             var khachHang = api.readData();
             var listAdmin = api.readAdminData();
+            var kh = khachHang.Where(x => x.email == textTk.Text && x.matKhau == textPass.Text).FirstOrDefault();
             bool checkAdmin = listAdmin.Any(x=>x.TaiKhoan== textTk.Text && x.MatKhau== textPass.Text);
             bool checkUser = khachHang.Any(x=>x.email == textTk.Text && x.matKhau== textPass.Text);
             if (checkAdmin)
@@ -53,10 +53,11 @@ namespace QLCGV
                 var admin = new Admin.Admin();
                 admin.Show();
             }
-            if (checkUser)
+            if (kh!=null)
             {
                 this.Hide();
                 var user = new User.User();
+                id = kh.ID.ToString();
                 user.Show();
             }
             else
