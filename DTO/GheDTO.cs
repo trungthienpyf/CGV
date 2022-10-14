@@ -8,5 +8,9 @@ namespace DTO
 {
     public class GheDTO
     {
+        public int ID { get; set; }
+        public string loaiGhe { get; set; }
+      
+        public string maPhong { get; set; }
     }
 }

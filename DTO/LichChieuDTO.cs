@@ -12,6 +12,6 @@ namespace DTO
         public string gioBatDau { get; set; }
         public string gioKetThuc { get; set; }
         public string ngayChieu { get; set; }
-        public string maPhong { get; set; }
+        public int maPhong { get; set; }
     }
 }

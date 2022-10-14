@@ -166,6 +166,9 @@
     <EmbeddedResource Include="User\ChonGhe.resx">
       <DependentUpon>ChonGhe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User\ThanhToan.resx">
+      <DependentUpon>ThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\User.resx">
       <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
