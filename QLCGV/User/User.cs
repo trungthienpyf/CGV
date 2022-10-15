@@ -222,5 +222,11 @@ namespace QLCGV.User
            
             /*this.User_Load(null,EventArgs.Empty);*/
         }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Login().Show();
+        }
     }
 }
