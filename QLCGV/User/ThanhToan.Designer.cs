@@ -236,6 +236,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ThanhToan";
             this.Text = "ThanhToan";
+           
             this.Load += new System.EventHandler(this.ThanhToan_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

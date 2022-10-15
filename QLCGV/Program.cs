@@ -18,9 +18,9 @@ namespace QLCGV
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new User.User());
+            //Application.Run(new User.User());
             Application.Run(new Login());
-            // Application.Run(new LichChieu());
+           //  Application.Run(new LichChieu());
         }
     }
 }
