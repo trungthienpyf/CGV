@@ -56,17 +56,17 @@ namespace QLCGV.User
             List<GheDTO> ds2 = new List<GheDTO>();
  
             WebClient wc = new WebClient();
-            string json = wc.DownloadString("http://127.0.0.1:8000/api/ghe");
+            string json = wc.DownloadString("https://mfw060.wcom.vn/api/ghe");
             pnGhe.Controls.Clear();
             List<GheDTO> ds = JsonConvert.DeserializeObject<List<GheDTO>>(json);
             
             using (WebClient wc2 = new WebClient())
             {
-                string query = string.Format("maLichChieu={0}&maPhim={1}&maPhong={2}",
-                  User.maLC, User.maP, User.maPhong);
-            
+                string query = string.Format("maLichChieu={0}&maPhim={1}&maPhong={2}&ngayXem={3}",
+                  User.maLC, User.maP, User.maPhong,User.day2);
+
                 wc2.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                string json2 = wc2.UploadString("http://127.0.0.1:8000/api/getGheExit", query);
+                string json2 = wc2.UploadString("https://mfw060.wcom.vn/api/getGheExit", query);
                 
                 ds2 = JsonConvert.DeserializeObject<List<GheDTO>>(json2);
 
@@ -221,7 +221,7 @@ namespace QLCGV.User
                      DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"), textBox1.Text, Login.id);
                 wc.Encoding = UTF8Encoding.UTF8;
                 wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded; charset=utf-8";
-                string HtmlResult = wc.UploadString("http://127.0.0.1:8000/api/hoaDon", query);
+                string HtmlResult = wc.UploadString("https://mfw060.wcom.vn/api/hoaDon", query);
 
                 var jo = JObject.Parse(HtmlResult);
                 var status = jo["status"].ToString();
@@ -236,7 +236,7 @@ namespace QLCGV.User
 
 
             WebClient wc1 = new WebClient();
-            string json = wc1.DownloadString("http://127.0.0.1:8000/api/hoaDon");
+            string json = wc1.DownloadString("https://mfw060.wcom.vn/api/hoaDon");
 
             List<HoaDonDTO> ds = JsonConvert.DeserializeObject<List<HoaDonDTO>>(json);
             var hd = ds.Last();
@@ -263,11 +263,12 @@ namespace QLCGV.User
             {
                 int tienVe = int.Parse(textBox1.Text) / dsChon.Count;
 
-                string query = string.Format("ngayTao={0}&trangThai={1}&giaVe={2}&maLichChieu={3}&maHoaDon={4}&maGhe={5}",
-                     DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),1, tienVe.ToString(), User.maLC, hd, ghe);
+                string query = string.Format("ngayTao={0}&trangThai={1}&giaVe={2}&maLichChieu={3}&maHoaDon={4}&maGhe={5}&ngayXem={6}",
+                     DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),1, tienVe.ToString(), User.maLC, hd, ghe, User.day2);
+            
                 wc.Encoding = UTF8Encoding.UTF8;
                 wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded; charset=utf-8";
-                string HtmlResult = wc.UploadString("http://127.0.0.1:8000/api/ve", query);
+                string HtmlResult = wc.UploadString("https://mfw060.wcom.vn/api/ve", query);
 
                 var jo = JObject.Parse(HtmlResult);
                 var status = jo["status"].ToString();

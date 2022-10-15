@@ -156,7 +156,9 @@ namespace QLCGV.Admin
 
         private void Phim_Load(object sender, EventArgs e)
         {
+           
             load();
+
         }
 
         private void textMa_TextChanged(object sender, EventArgs e)

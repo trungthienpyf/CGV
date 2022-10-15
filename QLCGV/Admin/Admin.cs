@@ -93,5 +93,10 @@ namespace QLCGV.Admin
             this.Hide();
             new KhachHang().Show();
         }
+
+        private void Admin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -33,13 +33,21 @@ namespace QLCGV.Admin
             DateTime time2 = DateTime.ParseExact(dateTimePicker3.Value.ToString("HH:mm"), "HH:mm", CultureInfo.InvariantCulture);
             bool isvalid = time1 < time2;
             return isvalid;
+        } 
+        private bool checkNgay()
+        {
+           
+            DateTime time1 = DateTime.ParseExact(dateTimePicker1.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            DateTime time2 = DateTime.ParseExact(dateTimePicker4.Value.ToString("yyyy-MM-dd"), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            bool isvalid = time1 < time2;
+            return isvalid;
         }
         private void button1_Click(object sender, EventArgs e)
         {
             LichChieuDTO lichChieuDTO = new LichChieuDTO();
             try
             {
-               // MessageBox.Show(dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+               
                 if (lbID.Text != "")
                 {
                     throw new Exception("Vui long xoa ma truoc khi them du lieu");
@@ -53,20 +61,26 @@ namespace QLCGV.Admin
                 {
                     throw new Exception("Giờ bắt đầu không được nhỏ hơn giờ kết thúc");
                 }
+                if(checkNgay()==false)
+                {
+                    throw new Exception("Ngày bắt đầu không được nhỏ hơn Ngày kết thúc");
+                }
+             
                 lichChieuDTO.gioBatDau = dateTimePicker2.Value.ToString("HH:mm");
                 lichChieuDTO.gioKetThuc = dateTimePicker3.Value.ToString("HH:mm");
                 lichChieuDTO.ngayChieu = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+               
                lichChieuDTO.maPhong = int.Parse(comboTL.SelectedValue.ToString());
               
-                string query = string.Format("gioBatDau={0}&gioKetThuc={1}&ngayChieu={2}&maPhong={3}",
-                lichChieuDTO.gioBatDau, lichChieuDTO.gioKetThuc, lichChieuDTO.ngayChieu, lichChieuDTO.maPhong);
+                string query = string.Format("gioBatDau={0}&gioKetThuc={1}&ngayChieu={2}&maPhong={3}&ngayKetThuc={4}",
+                lichChieuDTO.gioBatDau, lichChieuDTO.gioKetThuc, lichChieuDTO.ngayChieu, lichChieuDTO.maPhong, dateTimePicker4.Value.ToString("yyyy-MM-dd"));
               
                 bool check = lichChieu.insertData(query);
                 if (check == true)
                 {
                     MessageBox.Show("Them moi du lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
                     WebClient wc1 = new WebClient();
-                    string json = wc1.DownloadString("http://127.0.0.1:8000/api/lichChieu");
+                    string json = wc1.DownloadString("https://mfw060.wcom.vn/api/lichChieu");
 
                     List<LichChieuDTO> ds = JsonConvert.DeserializeObject<List<LichChieuDTO>>(json);
                     var hd = ds.Last();
@@ -130,6 +144,12 @@ namespace QLCGV.Admin
             dateTimePicker1.Format = DateTimePickerFormat.Short;
             dateTimePicker1.Value = DateTime.Today;
             dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+
+            dateTimePicker4.Format = DateTimePickerFormat.Short;
+            dateTimePicker4.Value = DateTime.Today.AddDays(20);
+            dateTimePicker4.CustomFormat = "yyyy-MM-dd";
+
+
 
 
             dateTimePicker2.Format = DateTimePickerFormat.Time;
@@ -197,8 +217,8 @@ namespace QLCGV.Admin
                 comboBox1.SelectedValue, id);
                 wc.Encoding = UTF8Encoding.UTF8;
                 wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded; charset=utf-8";
-                string HtmlResult = wc.UploadString("http://127.0.0.1:8000/api/ct_lc", query);
-                MessageBox.Show(query);
+                string HtmlResult = wc.UploadString("https://mfw060.wcom.vn/api/ct_lc", query);
+           
                 var jo = JObject.Parse(HtmlResult);
                 var status = jo["status"].ToString();
                 if (status == "200")
@@ -235,6 +255,9 @@ namespace QLCGV.Admin
 
         }
 
-       
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

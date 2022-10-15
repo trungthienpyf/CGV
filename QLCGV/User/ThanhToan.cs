@@ -47,7 +47,20 @@ namespace QLCGV.User
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new User().Show();
+            using (User frmAddMov = new User())
+            {
+                if (frmAddMov.ShowDialog() == DialogResult.OK)
+                {
+                    frmAddMov.Invalidate();
+                    frmAddMov.Refresh();
+                
+
+                }
+            }
+            
+           
         }
+
+        
     }
 }
