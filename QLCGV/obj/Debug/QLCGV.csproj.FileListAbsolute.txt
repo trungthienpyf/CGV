@@ -96,3 +96,5 @@ D:\gitCloneC#\clone\CGV\QLCGV\bin\Debug\Newtonsoft.Json.xml
 D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.csproj.CopyComplete
 D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.exe
 D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.pdb
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.Admin.LichChieu.resources
+C:\Users\PVT\Documents\GitHub\CGV\QLCGV\obj\Debug\QLCGV.User.ThanhToan.resources

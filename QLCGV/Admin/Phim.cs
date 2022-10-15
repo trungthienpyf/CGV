@@ -110,27 +110,19 @@ namespace QLCGV.Admin
         }
         private void getNameCategoryMovie()
         {
-
-
             TheLoaiPhimBAL tlp = new TheLoaiPhimBAL();
-           var ds= tlp.readData();
-
-
+            var ds= tlp.readData();
             var list = new BindingList<TheLoaiPhimDTO>(ds);
             var source = new BindingSource(list, null);
-            comboTL.DataSource = source;
-          
+            comboTL.DataSource = source;         
             comboTL.ValueMember = "ID";
             comboTL.DisplayMember = "tenTheLoai";
-
         }
-
         
         private void load()
         {
             getNameCategoryMovie();
             List<PhimDTO> ds = phim.readData();
-
             var list = new BindingList<PhimDTO>(ds);
             var source = new BindingSource(list, null);
             dgv.DataSource = source;
@@ -155,10 +147,8 @@ namespace QLCGV.Admin
         }
 
         private void Phim_Load(object sender, EventArgs e)
-        {
-           
+        {          
             load();
-
         }
 
         private void textMa_TextChanged(object sender, EventArgs e)
@@ -172,18 +162,15 @@ namespace QLCGV.Admin
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-           
+        {           
                 WebRequest request = WebRequest.Create("https://mfw060.wcom.vn/api/phim/" + labelId.Text);
                 request.Method = "DELETE";
-
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 if (response.StatusCode == HttpStatusCode.OK)
                     MessageBox.Show("Xoa thanh cong");
                 else
                     MessageBox.Show("Co loi xay ra");
             load();
-
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

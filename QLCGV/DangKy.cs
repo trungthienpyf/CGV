@@ -74,7 +74,7 @@ namespace QLCGV
 
                     if (!mRegxExpression.IsMatch(textEmail.Text.Trim()))
                     {
-                        throw new Exception("Vui lòng nhập Email");
+                        throw new Exception("Vui lòng nhập đúng cú pháp Email");
 
                     }
                 }

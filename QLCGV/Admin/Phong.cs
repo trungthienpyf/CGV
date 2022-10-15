@@ -106,7 +106,7 @@ namespace QLCGV.Admin
                 bool check = phong.updateData(query, int.Parse(txtMaPC.Text));
                 if (check == true)
                 {
-                    MessageBox.Show("Cap nhat phim lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
+                    MessageBox.Show("Cap nhat thanh cong!", "Thong Bao", MessageBoxButtons.OK);
                     load();
                 }
                 else

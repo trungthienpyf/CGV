@@ -35,49 +35,31 @@ namespace QLCGV.User
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-        
+        {       
             Button btn = sender as Button;
-
-          
-
-        string[] authorsList = btn.Tag.ToString().Split(',');
-         
+            string[] authorsList = btn.Tag.ToString().Split(',');  
             maLC = int.Parse(authorsList[0]);
             maP = int.Parse(authorsList[1]);
             maPhong = int.Parse(authorsList[2]);
             gioBD =authorsList[3];
-            tenPhim =authorsList[4];
-           
+            tenPhim =authorsList[4];         
             this.Hide();
             var showGhe = new ChonGhe();
             showGhe.FormClosed += new FormClosedEventHandler(User_FormClosed); //add handler to catch when child form is closed
-            showGhe.Show();
-          
+            showGhe.Show();          
         }
        
   
     private void loadPhim(string day)
         {
-
-         
-
-
             WebClient wc1 = new WebClient();
-
             var k = DateTime.ParseExact(day,
-      "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);
-           
-              string query = string.Format("ngayChieu={0}",
-             k.ToString("yyyy-MM-dd"));
-          
+                "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None);           
+            string query = string.Format("ngayChieu={0}",
+            k.ToString("yyyy-MM-dd"));         
             wc1.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-
             string json = wc1.UploadString("https://mfw060.wcom.vn/api/getPhimClient", query);
-
-
             var ds = JsonConvert.DeserializeObject<List<PhimDTO>>(json);
-
             foreach (var i in ds)
             {
                 maP = i.id;
@@ -85,36 +67,26 @@ namespace QLCGV.User
                 //  Button hinh = new Button();
                 SplitContainer spltcnt2 = new SplitContainer();
                 Label lbName = new Label();
-
-                TableLayoutPanel pnGio = new TableLayoutPanel();
-
-            
-               
+                TableLayoutPanel pnGio = new TableLayoutPanel();     
                 spltcnt.Dock = DockStyle.Fill;
                 lbName.Text = i.tenPhim;
-
                 // hinh.Text = "Hinh";
-
                 spltcnt2.Dock = DockStyle.Fill;
                 spltcnt2.Orientation = Orientation.Horizontal;
-
                 spltcnt2.Panel1.Controls.Add(lbName);
                 spltcnt2.Panel2.Controls.Add(pnGio);
                 pnGio.Dock = DockStyle.Fill;
                 pnGio.ColumnCount = 5;
                 pnGio.RowCount = 1;
                 PictureBox hinh = new PictureBox();
-
                 hinh.Load("https://media.blogradio.vn/Upload/CMS/Nam_2013/Thang_2/Ngay_25/conmeotrenmainha.jpg?v=1");
                 hinh.SizeMode = PictureBoxSizeMode.StretchImage;
-
                 int col = 0;
                 foreach (var u in i.lich_chieus)
                 {
                     if(day== DateTime.Today.ToString("dd-MM-yyyy"))
                     {
                         var gio = DateTime.ParseExact(u.gioBatDau, "HH:mm:ss", CultureInfo.InvariantCulture);
-
                         if (gio >= DateTime.Now)
                         {
                             Button z = new Button();
@@ -134,20 +106,9 @@ namespace QLCGV.User
                         pnGio.Controls.Add(b, col, 0);
                         col++;
                     }
-
-                  
-
-                
-
-
                 }
-
-
-
                 spltcnt.Panel1.Controls.Add(hinh);
                 spltcnt.Panel2.Controls.Add(spltcnt2);
-
-
                 pnIndex.Controls.Add(spltcnt);
             }
         }
@@ -167,10 +128,7 @@ namespace QLCGV.User
                 tomorrow_3.ToString("dd-MM-yyyy") ,
                 tomorrow_4.ToString("dd-MM-yyyy") ,
 
-            };
-
-         
-
+            };        
             foreach (var item in date)
             {
                 Button button = new Button();
@@ -198,9 +156,7 @@ namespace QLCGV.User
                 }
             }
             day = btn.Text;
-            day2 = DateTime.ParseExact(btn.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd");
-          
-
+            day2 = DateTime.ParseExact(btn.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd");         
             if (btn.Text==day)
             {
                 btn.Enabled = false;

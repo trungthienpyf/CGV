@@ -142,7 +142,7 @@ namespace QLCGV.Admin
             {
                 if (lbID.Text == "")
                 {
-                    throw new Exception("Vui long chon phim can xoa tren bang");
+                    throw new Exception("Vui lòng chọn nhân viên cần xóa!!!");
                 }
 
                 adminDTO.TenAdmin = txtTenAdm.Text;
@@ -151,15 +151,23 @@ namespace QLCGV.Admin
                 adminDTO.ChucVu = cmbCV.Text;
                 string query = string.Format("tenAdmin={0}&taiKhoan={1}&matKhau={2}&chucVu={3}",
                     adminDTO.TenAdmin, adminDTO.TaiKhoan, adminDTO.MatKhau, adminDTO.ChucVu);
+                AdminBAL ad = new AdminBAL();
+                var list = ad.readData();
+
+                var checkInclude = list.Where(p => p.TaiKhoan == txtAccount.Text).FirstOrDefault();
+                if (checkInclude != null)
+                {
+                    throw new Exception("Tài khoản đã tồn tại!!!");
+                }
                 bool check = admin.updateData(query, int.Parse(lbID.Text));
                 if (check == true)
                 {
-                    MessageBox.Show("Cap nhat phim lieu thanh cong!", "Thong Bao", MessageBoxButtons.OK);
+                    MessageBox.Show("Cập nhật thành công!", "Thong Bao", MessageBoxButtons.OK);
                     load();
                 }
                 else
                 {
-                    throw new Exception("Sua khong thanh cong");
+                    throw new Exception("Cập nhập thất bại!");
                 }
 
 
