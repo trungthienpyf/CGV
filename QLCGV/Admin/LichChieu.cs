@@ -259,5 +259,12 @@ namespace QLCGV.Admin
         {
 
         }
+
+        private void btnTroVe_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Admin ad = new Admin();
+            ad.Show();
+        }
     }
 }

@@ -50,7 +50,7 @@
             this.label1.Location = new System.Drawing.Point(194, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(459, 50);
+            this.label1.Size = new System.Drawing.Size(427, 47);
             this.label1.TabIndex = 0;
             this.label1.Text = "Trang Đăng ký tài khoản ";
             // 
@@ -72,7 +72,7 @@
             this.textHt.Location = new System.Drawing.Point(178, 116);
             this.textHt.Margin = new System.Windows.Forms.Padding(4);
             this.textHt.Name = "textHt";
-            this.textHt.Size = new System.Drawing.Size(141, 43);
+            this.textHt.Size = new System.Drawing.Size(141, 41);
             this.textHt.TabIndex = 2;
             // 
             // textEmail
@@ -81,7 +81,7 @@
             this.textEmail.Location = new System.Drawing.Point(178, 181);
             this.textEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textEmail.Name = "textEmail";
-            this.textEmail.Size = new System.Drawing.Size(141, 43);
+            this.textEmail.Size = new System.Drawing.Size(141, 41);
             this.textEmail.TabIndex = 3;
             // 
             // textSdt
@@ -90,7 +90,7 @@
             this.textSdt.Location = new System.Drawing.Point(514, 113);
             this.textSdt.Margin = new System.Windows.Forms.Padding(4);
             this.textSdt.Name = "textSdt";
-            this.textSdt.Size = new System.Drawing.Size(152, 43);
+            this.textSdt.Size = new System.Drawing.Size(152, 41);
             this.textSdt.TabIndex = 4;
             // 
             // textMk
@@ -99,7 +99,7 @@
             this.textMk.Location = new System.Drawing.Point(500, 181);
             this.textMk.Margin = new System.Windows.Forms.Padding(4);
             this.textMk.Name = "textMk";
-            this.textMk.Size = new System.Drawing.Size(153, 43);
+            this.textMk.Size = new System.Drawing.Size(153, 41);
             this.textMk.TabIndex = 5;
             // 
             // label2
@@ -109,7 +109,7 @@
             this.label2.Location = new System.Drawing.Point(56, 116);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 36);
+            this.label2.Size = new System.Drawing.Size(125, 35);
             this.label2.TabIndex = 8;
             this.label2.Text = "Họ và tên";
             // 
@@ -120,7 +120,7 @@
             this.label3.Location = new System.Drawing.Point(93, 185);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 36);
+            this.label3.Size = new System.Drawing.Size(82, 35);
             this.label3.TabIndex = 9;
             this.label3.Text = "Email";
             // 
@@ -131,7 +131,7 @@
             this.label4.Location = new System.Drawing.Point(82, 245);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 36);
+            this.label4.Size = new System.Drawing.Size(97, 35);
             this.label4.TabIndex = 10;
             this.label4.Text = "Địa chỉ";
             // 
@@ -142,7 +142,7 @@
             this.label5.Location = new System.Drawing.Point(350, 116);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(168, 36);
+            this.label5.Size = new System.Drawing.Size(163, 35);
             this.label5.TabIndex = 11;
             this.label5.Text = "Số điện thoại";
             // 
@@ -153,7 +153,7 @@
             this.label6.Location = new System.Drawing.Point(374, 185);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 36);
+            this.label6.Size = new System.Drawing.Size(123, 35);
             this.label6.TabIndex = 12;
             this.label6.Text = "Mật khẩu";
             // 
@@ -178,7 +178,7 @@
             // 
             // DangKy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 447);
             this.Controls.Add(this.button2);
@@ -197,6 +197,7 @@
             this.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DangKy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DangKy";
             this.Load += new System.EventHandler(this.DangKy_Load);
             this.ResumeLayout(false);
