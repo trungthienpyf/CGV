@@ -216,8 +216,12 @@ namespace QLCGV.User
 
         private void button1_Click_3(object sender, EventArgs e)
         {
-            this.Hide();
-            new Login().Show();
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new Login().Show();
+            }
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
