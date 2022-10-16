@@ -96,3 +96,4 @@ D:\gitCloneC#\clone\CGV\QLCGV\bin\Debug\Newtonsoft.Json.xml
 D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.csproj.CopyComplete
 D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.exe
 D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.pdb
+D:\gitCloneC#\clone\CGV\QLCGV\obj\Debug\QLCGV.User.Ve.resources

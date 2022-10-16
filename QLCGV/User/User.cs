@@ -88,8 +88,6 @@ namespace QLCGV.User
 
                 TableLayoutPanel pnGio = new TableLayoutPanel();
 
-            
-               
                 spltcnt.Dock = DockStyle.Fill;
                 lbName.Text = i.tenPhim;
 
@@ -135,14 +133,7 @@ namespace QLCGV.User
                         col++;
                     }
 
-                  
-
-                
-
-
                 }
-
-
 
                 spltcnt.Panel1.Controls.Add(hinh);
                 spltcnt.Panel2.Controls.Add(spltcnt2);
@@ -227,6 +218,12 @@ namespace QLCGV.User
         {
             this.Hide();
             new Login().Show();
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Ve().Show();
         }
     }
 }

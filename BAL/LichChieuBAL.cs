@@ -13,7 +13,7 @@ namespace BAL
         LichChieuDAL LichChieuDAL = new LichChieuDAL();
         public List<LichChieuDTO> readData()
         {
-            string URL = "http://127.0.0.1:8000/api/lichChieu";
+            string URL = "https://mfw060.wcom.vn/api/lichChieu";
             var ds = LichChieuDAL.readData(URL);
 
             return ds;
@@ -22,7 +22,7 @@ namespace BAL
         {
 
 
-            string URL = "http://127.0.0.1:8000/api/lichChieu";
+            string URL = "https://mfw060.wcom.vn/api/lichChieu";
             bool check = LichChieuDAL.insertData(myParameters, URL);
 
             if (check)
@@ -32,7 +32,7 @@ namespace BAL
         }
         public bool updateData(string myParameters, int id)
         {
-            string URL = "http://127.0.0.1:8000/api/lichChieu/";
+            string URL = "https://mfw060.wcom.vn/api/lichChieu/";
             bool check = LichChieuDAL.updateData(myParameters, id, URL);
 
             if (check)
