@@ -128,7 +128,7 @@ namespace QLCGV.User
                
                 DsGhe.Remove(Convert.ToInt32(btn.Tag));
 
-                MessageBox.Show("ghe da dc ban!!", "Thong bao", MessageBoxButtons.OK);
+                MessageBox.Show("Ghế đã được bán, xin vui lòng chọn ghế khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         
@@ -144,7 +144,7 @@ namespace QLCGV.User
                 lblGhe.BackColor = Color.White;
             else if (lblGhe.BackColor == Color.Yellow)
             {
-                MessageBox.Show("Ghế số [" + lblGhe.Text + "] đã có người đặt rồi");
+                MessageBox.Show("Ghế số [" + lblGhe.Text + "] đã có người đặt rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -186,7 +186,7 @@ namespace QLCGV.User
 
           
 
-            textBox1.Text = thanhtien.ToString();
+            txtThanhTien.Text = thanhtien.ToString();
             thanhtien = 0;
           
            
@@ -205,20 +205,20 @@ namespace QLCGV.User
         {
             if(DsGhe.Count == 0)
             {
-                MessageBox.Show("Vui long chon ghe truoc khi thanh toan");
+                MessageBox.Show("Vui lòng chọn ghế trước khi thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
 
             
-            total = textBox1.Text;
+            total = txtThanhTien.Text;
 
             soVe = dsChon.Count;
             
             using (WebClient wc = new WebClient())
             {
                 string query = string.Format("ngayTao={0}&thanhTien={1}&maKhachHang={2}",
-                     DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"), textBox1.Text, Login.id);
+                     DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"), txtThanhTien.Text, Login.id);
                 wc.Encoding = UTF8Encoding.UTF8;
                 wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded; charset=utf-8";
                 string HtmlResult = wc.UploadString("https://mfw060.wcom.vn/api/hoaDon", query);
@@ -249,7 +249,7 @@ namespace QLCGV.User
                 tenGhe.Add("Ghe "+btn);
             }
 
-            MessageBox.Show("Dat ve thanh cong");
+            MessageBox.Show("Đặt vé thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
          
             this.Hide();
 
@@ -261,7 +261,7 @@ namespace QLCGV.User
         {
             using (WebClient wc = new WebClient())
             {
-                int tienVe = int.Parse(textBox1.Text) / dsChon.Count;
+                int tienVe = int.Parse(txtThanhTien.Text) / dsChon.Count;
 
                 string query = string.Format("ngayTao={0}&trangThai={1}&giaVe={2}&maLichChieu={3}&maHoaDon={4}&maGhe={5}&ngayXem={6}",
                      DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"),1, tienVe.ToString(), User.maLC, hd, ghe, User.day2);
@@ -294,14 +294,24 @@ namespace QLCGV.User
             dsChon.Clear();
 
 
-            textBox1.Text = "";
+            txtThanhTien.Text = "";
             
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            new User().Show();
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn hủy các vé đang chọn không ? ", "Hủy mua vé", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new User().Show();
+            }
+            
+        }
+
+        private void txtThanhTien_TextChanged(object sender, EventArgs e)
+        {
+            txtThanhTien.ReadOnly = true;
         }
     }
 }

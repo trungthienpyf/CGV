@@ -50,19 +50,24 @@ namespace QLCGV
             bool checkUser = khachHang.Any(x=>x.email == textTk.Text && x.matKhau== textPass.Text);
             if (checkAdmin)
             {
-                this.Hide();
+                MessageBox.Show("Đăng nhập với tư cách người quản trị", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();   
                 var admin = new Admin.Admin();
                 admin.Show();
             }else
             if (kh!=null)
             {
+                MessageBox.Show("Đăng nhập với tư cách người dùng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
                 var user = new User.User();
                 id = kh.ID.ToString();
                 user.Show();
-            }
+            }else if(textTk.Text == "" || textPass.Text == "")
+            {
+                MessageBox.Show("Xin vui lòng nhập thông tin đầy đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }    
             else
-                MessageBox.Show("Kiểm tra lại thông tin của bạn");
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu, Vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         private void button2_Click(object sender, EventArgs e)
         {

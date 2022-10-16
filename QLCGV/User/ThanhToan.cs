@@ -61,6 +61,9 @@ namespace QLCGV.User
            
         }
 
-        
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
