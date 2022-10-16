@@ -101,8 +101,15 @@ namespace QLCGV.Admin
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            new Login().Show();
+            
+            try
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất tài khoản ");
+                this.Hide();
+                new Login().Show();
+
+            }
+
         }
     }
 }
