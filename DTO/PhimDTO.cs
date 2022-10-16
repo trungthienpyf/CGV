@@ -23,10 +23,10 @@ namespace DTO
         public string gioKetThuc { get; set; }
         public string ngayChieu { get; set; }
         public int maPhong { get; set; }
-        public Pivot pivot { get; set; }
+        public PivotHD pivot { get; set; }
     }
 
-    public class Pivot
+    public class PivotHD
     {
         public int maPhim { get; set; }
         public int maLichChieu { get; set; }

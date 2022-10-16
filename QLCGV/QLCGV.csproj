@@ -123,6 +123,12 @@
     <Compile Include="User\User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <Compile Include="User\Ve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\Ve.Designer.cs">
+      <DependentUpon>Ve.cs</DependentUpon>
+    </Compile>
     <Compile Include="_QLRPDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\User.resx">
       <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\Ve.resx">
+      <DependentUpon>Ve.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

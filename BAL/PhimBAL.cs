@@ -16,7 +16,7 @@ namespace BAL
         PhimDAL phimDAL=new PhimDAL();
         public List<PhimDTO> readData()
         {
-            string URL = "http://127.0.0.1:8000/api/phim";
+            string URL = "https://mfw060.wcom.vn/api/phim";
           var ds=  phimDAL.readData(URL);
 
             return ds;
