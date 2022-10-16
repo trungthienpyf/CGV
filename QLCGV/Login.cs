@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLCGV
 {
@@ -52,7 +53,7 @@ namespace QLCGV
                 this.Hide();
                 var admin = new Admin.Admin();
                 admin.Show();
-            }
+            }else
             if (kh!=null)
             {
                 this.Hide();
@@ -61,7 +62,7 @@ namespace QLCGV
                 user.Show();
             }
             else
-                MessageBox.Show("Kiểm tra lại thông tin của bạn :::");
+                MessageBox.Show("Kiểm tra lại thông tin của bạn");
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -99,7 +100,7 @@ namespace QLCGV
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            textPass.PasswordChar = '*';
         }
 
         private void button3_Click(object sender, EventArgs e)
