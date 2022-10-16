@@ -33,7 +33,7 @@ namespace QLCGV.User
             wc1.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
             string query = string.Format("id={0}",
            Login.id);
-            string json = wc1.UploadString("http://127.0.0.1:8000/api/getTicket", query);
+            string json = wc1.UploadString("https://mfw060.wcom.vn/api/getTicket", query);
 
 
             var ds = JsonConvert.DeserializeObject<List<HoaDonDTO>>(json);
