@@ -93,8 +93,8 @@ namespace QLCGV
                     throw new Exception("SDT hoac Email da bi trung!");
 
                 }
-                string query = string.Format("tenKhachHang={0}&sdt={1}&email={2}&matKhau={3}&diaChi{4}",
-                textHt.Text, textSdt.Text, textEmail.Text, textMk.Text,richTextDc);
+                string query = string.Format("tenKhachHang={0}&sdt={1}&email={2}&matKhau={3}&diaChi={4}",
+                textHt.Text, textSdt.Text, textEmail.Text, textMk.Text,richTextDc.Text);
                 bool check= dk.insertData(query);
   
                 if (check == true)

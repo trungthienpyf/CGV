@@ -104,10 +104,17 @@ namespace QLCGV.Admin
             
             try
             {
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất tài khoản ");
-                this.Hide();
-                new Login().Show();
-
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    
+                    this.Hide();
+                    MessageBox.Show("Đăng xuất thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new Login().Show();
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);    
             }
 
         }

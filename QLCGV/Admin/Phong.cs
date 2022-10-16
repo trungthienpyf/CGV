@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Reflection.Emit;
 using System.Security.Cryptography;
 using System.Security.Policy;
@@ -151,6 +152,13 @@ namespace QLCGV.Admin
         private void btnXoaMa_Click(object sender, EventArgs e)
         {
             clearText();
+        }
+
+        private void btnTroVe_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Admin ad = new Admin();
+            ad.Show();
         }
     }
 

@@ -110,7 +110,7 @@ namespace QLCGV.Admin
 
         }
 
-
+        
         private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvKhachHang.ReadOnly = true;
@@ -121,7 +121,21 @@ namespace QLCGV.Admin
             txtSDT.Text = dgvKhachHang.Rows[i].Cells[2].Value.ToString();
             txtEmail.Text = dgvKhachHang.Rows[i].Cells[3].Value.ToString();
             txtMatKhau.Text = dgvKhachHang.Rows[i].Cells[4].Value.ToString();
-            txtDiaChi.Text = dgvKhachHang.Rows[i].Cells[5].Value.ToString();
+            if (dgvKhachHang.Rows[i].Cells[5].Value == null)
+            {
+                txtDiaChi.Text = null;
+            }
+            else
+            {
+                txtDiaChi.Text = dgvKhachHang.Rows[i].Cells[5].Value.ToString();
+            }
+        }
+        //Back from Dashboard
+        private void btnTroVe_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Admin ad = new Admin();
+            ad.Show();
         }
     }
 }
