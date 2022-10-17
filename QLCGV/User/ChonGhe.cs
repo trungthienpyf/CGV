@@ -203,6 +203,12 @@ namespace QLCGV.User
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            if (txtThanhTien.Text == "0")
+            {
+                MessageBox.Show("Vui lòng chọn ghế trước khi thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
             if(DsGhe.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn ghế trước khi thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
