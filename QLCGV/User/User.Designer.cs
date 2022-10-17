@@ -57,9 +57,9 @@
             // 
             this.groupBox1.Controls.Add(this.pnIndex);
             this.groupBox1.Location = new System.Drawing.Point(109, 151);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(830, 451);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -69,7 +69,7 @@
             this.pnIndex.ColumnCount = 1;
             this.pnIndex.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnIndex.Location = new System.Drawing.Point(20, 23);
-            this.pnIndex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnIndex.Margin = new System.Windows.Forms.Padding(4);
             this.pnIndex.Name = "pnIndex";
             this.pnIndex.RowCount = 4;
             this.pnIndex.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -109,7 +109,7 @@
             this.pnTime.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.pnTime.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.pnTime.Location = new System.Drawing.Point(109, 62);
-            this.pnTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnTime.Margin = new System.Windows.Forms.Padding(4);
             this.pnTime.Name = "pnTime";
             this.pnTime.RowCount = 1;
             this.pnTime.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -120,22 +120,22 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 85);
+            this.label2.Location = new System.Drawing.Point(13, 84);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 22);
+            this.label2.Size = new System.Drawing.Size(58, 24);
             this.label2.TabIndex = 5;
             this.label2.Text = "Ngày";
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.OrangeRed;
+            this.button1.BackColor = System.Drawing.Color.Red;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(969, 31);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(976, 62);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 48);
+            this.button1.Size = new System.Drawing.Size(111, 42);
             this.button1.TabIndex = 6;
             this.button1.Text = "Đăng xuất";
             this.button1.UseVisualStyleBackColor = false;
@@ -153,7 +153,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lbTieuDe);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "User";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

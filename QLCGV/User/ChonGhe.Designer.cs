@@ -35,26 +35,28 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnHuy = new System.Windows.Forms.Button();
-            this.btnChon = new System.Windows.Forms.Button();
-            this.txtThanhTien = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pnGhe = new System.Windows.Forms.TableLayoutPanel();
             this.btnTroVe = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.txtThanhTien = new System.Windows.Forms.TextBox();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnChon = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pnGhe = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbTieuDe
             // 
             this.lbTieuDe.AutoSize = true;
             this.lbTieuDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.90435F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTieuDe.Location = new System.Drawing.Point(465, 44);
+            this.lbTieuDe.Location = new System.Drawing.Point(496, 36);
             this.lbTieuDe.Name = "lbTieuDe";
             this.lbTieuDe.Size = new System.Drawing.Size(178, 32);
             this.lbTieuDe.TabIndex = 2;
@@ -117,10 +119,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.groupBox2.Controls.Add(this.btnTroVe);
             this.groupBox2.Controls.Add(this.panel2);
-            this.groupBox2.Controls.Add(this.btnHuy);
-            this.groupBox2.Controls.Add(this.btnChon);
+            this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Location = new System.Drawing.Point(1, 501);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
@@ -129,41 +129,50 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
+            // btnTroVe
+            // 
+            this.btnTroVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTroVe.Location = new System.Drawing.Point(358, 39);
+            this.btnTroVe.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTroVe.Name = "btnTroVe";
+            this.btnTroVe.Size = new System.Drawing.Size(95, 42);
+            this.btnTroVe.TabIndex = 16;
+            this.btnTroVe.Text = "Trở về";
+            this.btnTroVe.UseVisualStyleBackColor = true;
+            this.btnTroVe.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.txtThanhTien);
+            this.panel2.Location = new System.Drawing.Point(828, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(364, 163);
+            this.panel2.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(21, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 24);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Thành Tiền: ";
+            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(131, 105);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(147, 32);
             this.button3.TabIndex = 19;
             this.button3.Text = "Thanh toán";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.Location = new System.Drawing.Point(351, 57);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(95, 42);
-            this.btnHuy.TabIndex = 17;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnChon
-            // 
-            this.btnChon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChon.Location = new System.Drawing.Point(136, 57);
-            this.btnChon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(95, 42);
-            this.btnChon.TabIndex = 16;
-            this.btnChon.Text = "Chọn";
-            this.btnChon.UseVisualStyleBackColor = true;
-            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
             // 
             // txtThanhTien
             // 
@@ -177,15 +186,29 @@
             this.txtThanhTien.Text = "0";
             this.txtThanhTien.TextChanged += new System.EventHandler(this.txtThanhTien_TextChanged);
             // 
-            // label3
+            // btnHuy
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 22);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Thành Tiền: ";
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Location = new System.Drawing.Point(205, 39);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(95, 42);
+            this.btnHuy.TabIndex = 17;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnChon
+            // 
+            this.btnChon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChon.Location = new System.Drawing.Point(49, 39);
+            this.btnChon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnChon.Name = "btnChon";
+            this.btnChon.Size = new System.Drawing.Size(95, 42);
+            this.btnChon.TabIndex = 16;
+            this.btnChon.Text = "Chọn";
+            this.btnChon.UseVisualStyleBackColor = true;
+            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
             // 
             // groupBox1
             // 
@@ -217,28 +240,18 @@
             this.pnGhe.Size = new System.Drawing.Size(780, 362);
             this.pnGhe.TabIndex = 13;
             // 
-            // btnTroVe
+            // groupBox3
             // 
-            this.btnTroVe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTroVe.Location = new System.Drawing.Point(547, 57);
-            this.btnTroVe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnTroVe.Name = "btnTroVe";
-            this.btnTroVe.Size = new System.Drawing.Size(95, 42);
-            this.btnTroVe.TabIndex = 16;
-            this.btnTroVe.Text = "Trở về";
-            this.btnTroVe.UseVisualStyleBackColor = true;
-            this.btnTroVe.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.txtThanhTien);
-            this.panel2.Location = new System.Drawing.Point(828, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(364, 163);
-            this.panel2.TabIndex = 20;
+            this.groupBox3.Controls.Add(this.btnTroVe);
+            this.groupBox3.Controls.Add(this.btnHuy);
+            this.groupBox3.Controls.Add(this.btnChon);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.26957F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(258, 21);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(492, 100);
+            this.groupBox3.TabIndex = 21;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Chức năng";
             // 
             // ChonGhe
             // 
@@ -250,7 +263,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbTieuDe);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ChonGhe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -259,9 +272,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +298,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnTroVe;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
