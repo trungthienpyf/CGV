@@ -13,6 +13,7 @@ using System.Net.Http.Headers;
 using System.Reflection.Emit;
 using System.Security.Cryptography;
 using System.Security.Policy;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,7 +50,15 @@ namespace QLCGV.Admin
                     throw new Exception("vui long nhap day du thong tin");
                 }
                 phongDTO.tenPhong = txtTenPC.Text;
-                
+                PhongBAL ad = new PhongBAL();
+                var list = ad.readData();
+
+                var checkInclude = list.Where(p => p.tenPhong == txtTenPC.Text).FirstOrDefault();
+                if (checkInclude != null)
+                {
+                    throw new Exception("Phòng đã tồn tại!!!");
+                }
+
                 string query = string.Format("tenPhong={0}",phongDTO.tenPhong);
                 bool check = phong.insertData(query);   
 

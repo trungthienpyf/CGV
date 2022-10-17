@@ -27,7 +27,7 @@ namespace QLCGV.User
         public static string gioBD;
         public static string tenPhim;
         public static string day= DateTime.Today.ToString("dd-MM-yyyy");
-        public static string day2= DateTime.Today.ToString("yyyyyyyy-MM-dd");
+        public static string day2= DateTime.Today.ToString("yyyy-MM-dd");
         List<Button> btnArr = new List<Button>();
         public User()
         {
@@ -102,6 +102,7 @@ namespace QLCGV.User
                 pnGio.ColumnCount = 5;
                 pnGio.RowCount = 1;
                 PictureBox hinh = new PictureBox();
+                hinh.Dock = DockStyle.Fill;
                 string img = "https://mfw060.wcom.vn/images/"+i.img;
                
                 hinh.Load(img);
@@ -120,6 +121,8 @@ namespace QLCGV.User
                             z.Tag = u.id + "," + u.pivot.maPhim + "," + u.maPhong + "," + u.gioBatDau + "," + i.tenPhim;
                             z.Text = u.gioBatDau;
                             z.Click += button1_Click;
+                            z.Dock=DockStyle.Fill;
+                            pnGio.Dock=DockStyle.Fill;
                             pnGio.Controls.Add(z, col, 0);
                             col++;
                         }
@@ -173,6 +176,7 @@ namespace QLCGV.User
                     button.Enabled = false;
                 }
                 button.Click += button1_Click_1;
+                button.Dock = DockStyle.Fill;
                 pnTime.Controls.Add(button);
             }
             loadPhim(day);
