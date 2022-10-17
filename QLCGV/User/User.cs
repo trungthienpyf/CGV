@@ -92,7 +92,7 @@ namespace QLCGV.User
                 lbName.Text = i.tenPhim;
 
                 // hinh.Text = "Hinh";
-
+                lbName.Dock = DockStyle.Fill;
                 spltcnt2.Dock = DockStyle.Fill;
                 spltcnt2.Orientation = Orientation.Horizontal;
 
@@ -102,8 +102,9 @@ namespace QLCGV.User
                 pnGio.ColumnCount = 5;
                 pnGio.RowCount = 1;
                 PictureBox hinh = new PictureBox();
-
-                hinh.Load("https://media.blogradio.vn/Upload/CMS/Nam_2013/Thang_2/Ngay_25/conmeotrenmainha.jpg?v=1");
+                string img = "https://mfw060.wcom.vn/images/"+i.img;
+               
+                hinh.Load(img);
                 hinh.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 int col = 0;

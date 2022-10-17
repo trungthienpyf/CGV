@@ -14,6 +14,7 @@ namespace DTO
         public string moTa { get; set; }
         public string thoiGian { get; set; }
         public int maTheLoai { get; set; }
+        public string img { get; set; }
         public List<LichChieu> lich_chieus { get; set; }
     }
     public class LichChieu
