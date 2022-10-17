@@ -32,7 +32,7 @@ namespace QLCGV.User
             WebClient wc1 = new WebClient();
             wc1.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
             string query = string.Format("id={0}",
-           Login.id);
+            Login.id);
             string json = wc1.UploadString("https://mfw060.wcom.vn/api/getTicket", query);
 
 
@@ -43,7 +43,7 @@ namespace QLCGV.User
             {
                 Label lb = new Label();
                 text = "Mã đặt vé " + item.ID;
-               sl = item.ves.Count;
+                sl = item.ves.Count;
                 ghe = "";
                 gia = item.thanhTien +" VND";
                 foreach (var k in item.ves)
