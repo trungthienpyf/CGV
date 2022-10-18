@@ -120,7 +120,7 @@ namespace QLCGV.Admin
             }*/
           
             WebClient wc1 = new WebClient();
-            string json = wc1.DownloadString("http://127.0.0.1:8000/api/countTicket");
+            string json = wc1.DownloadString("https://mfw060.wcom.vn/api/countTicket");
 
              var ds = JsonConvert.DeserializeObject(json);
           label2.Text=ds.ToString();
