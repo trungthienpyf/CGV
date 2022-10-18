@@ -1,11 +1,14 @@
 ﻿using BAL;
 using DTO;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -95,9 +98,32 @@ namespace QLCGV.Admin
             this.Hide();
             new KhachHang().Show();
         }
-
+        public IEnumerable<DateTime> EachDay(DateTime from, DateTime thru)
+        {
+          
+            for (var day = from.Date; day.Date <= thru.Date; day = day.AddDays(1))
+            
+                yield return day;
+            
+               
+        }
         private void Admin_Load(object sender, EventArgs e)
         {
+           /* string dateInString = DateTime.Today.ToString();
+
+            DateTime startDate = DateTime.Parse(dateInString);
+            DateTime expiryDate = startDate.AddDays(-30);
+
+            foreach (DateTime day in EachDay(expiryDate, startDate))
+            {
+                MessageBox.Show(day.ToString("dd-MM-yyyy"));
+            }*/
+          
+            WebClient wc1 = new WebClient();
+            string json = wc1.DownloadString("https://mfw060.wcom.vn/api/countTicket");
+
+             var ds = JsonConvert.DeserializeObject(json);
+          label2.Text=ds.ToString();
 
         }
 
